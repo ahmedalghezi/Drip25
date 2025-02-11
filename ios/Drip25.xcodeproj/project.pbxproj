@@ -7,23 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B2198B39964E1A97A01013 /* drip-home-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88183F3EB9F9438683DCD993 /* drip-home-icons.ttf */; };
+		093424862E06480D9CCC06B1 /* drip-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E4CB61E06EF45D1AD06D7B3 /* drip-icon-font.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-Drip25.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Drip25.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		29333D943E634F9598F8A76D /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68D40A8543041DA9769A7F9 /* OpenSans-LightItalic.ttf */; };
+		3A71DDC65DEA4E61A5B72F27 /* Menu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 059BED1CC36C4F5FA8441093 /* Menu.ttf */; };
+		577A1E1FFB744354BE5E170E /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6704806857A040CC9DD7F537 /* OpenSans-SemiBold.ttf */; };
 		73295262AE0F732495E28AF5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9A5D135BBEC4492B820FEA8E /* Prompt-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91837208E2164262A508363E /* Prompt-ExtraLight.ttf */; };
+		A779D1804BB642B9989498C7 /* config-drip-home-icons.json in Resources */ = {isa = PBXBuildFile; fileRef = D6568B6168C14E8F9E688FC5 /* config-drip-home-icons.json */; };
+		C8925E4FD4AF4D9F85B69662 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5724253E1D194FAD80BA0224 /* OpenSans-Light.ttf */; };
+		CD03E079C4A449B7A0EFF026 /* config-drip-icon-font.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A2C353D142D4095B5C17339 /* config-drip-icon-font.json */; };
+		F74126CE5BE64B07B9B9AD06 /* Jost-400-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1339C10504144A20A45365D0 /* Jost-400-Book.otf */; };
+		FF382B6A12BB4EA09AE0A268 /* Jost-700-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD305B4B9B26455A94345456 /* Jost-700-Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		059BED1CC36C4F5FA8441093 /* Menu.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Menu.ttf; path = ../assets/fonts/Menu.ttf; sourceTree = "<group>"; };
+		1339C10504144A20A45365D0 /* Jost-400-Book.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Jost-400-Book.otf"; path = "../assets/fonts/Jost-400-Book.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Drip25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drip25.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Drip25/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Drip25/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = Drip25/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Drip25.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drip25.debug.xcconfig"; path = "Target Support Files/Pods-Drip25/Pods-Drip25.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Drip25.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drip25.release.xcconfig"; path = "Target Support Files/Pods-Drip25/Pods-Drip25.release.xcconfig"; sourceTree = "<group>"; };
+		5724253E1D194FAD80BA0224 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Light.ttf"; path = "../assets/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		5A2C353D142D4095B5C17339 /* config-drip-icon-font.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "config-drip-icon-font.json"; path = "../assets/fonts/config-drip-icon-font.json"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Drip25.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Drip25.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6704806857A040CC9DD7F537 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBold.ttf"; path = "../assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Drip25/AppDelegate.swift; sourceTree = "<group>"; };
+		7E4CB61E06EF45D1AD06D7B3 /* drip-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "drip-icon-font.ttf"; path = "../assets/fonts/drip-icon-font.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Drip25/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88183F3EB9F9438683DCD993 /* drip-home-icons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "drip-home-icons.ttf"; path = "../assets/fonts/drip-home-icons.ttf"; sourceTree = "<group>"; };
+		91837208E2164262A508363E /* Prompt-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Prompt-ExtraLight.ttf"; path = "../assets/fonts/Prompt-ExtraLight.ttf"; sourceTree = "<group>"; };
+		B68D40A8543041DA9769A7F9 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-LightItalic.ttf"; path = "../assets/fonts/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		CD305B4B9B26455A94345456 /* Jost-700-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Jost-700-Bold.otf"; path = "../assets/fonts/Jost-700-Bold.otf"; sourceTree = "<group>"; };
+		D6568B6168C14E8F9E688FC5 /* config-drip-home-icons.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "config-drip-home-icons.json"; path = "../assets/fonts/config-drip-home-icons.json"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -60,6 +82,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4B72C954E14548CD8E8044D2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1339C10504144A20A45365D0 /* Jost-400-Book.otf */,
+				CD305B4B9B26455A94345456 /* Jost-700-Bold.otf */,
+				059BED1CC36C4F5FA8441093 /* Menu.ttf */,
+				5724253E1D194FAD80BA0224 /* OpenSans-Light.ttf */,
+				B68D40A8543041DA9769A7F9 /* OpenSans-LightItalic.ttf */,
+				6704806857A040CC9DD7F537 /* OpenSans-SemiBold.ttf */,
+				91837208E2164262A508363E /* Prompt-ExtraLight.ttf */,
+				88183F3EB9F9438683DCD993 /* drip-home-icons.ttf */,
+				7E4CB61E06EF45D1AD06D7B3 /* drip-icon-font.ttf */,
+				D6568B6168C14E8F9E688FC5 /* config-drip-home-icons.json */,
+				5A2C353D142D4095B5C17339 /* config-drip-icon-font.json */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +116,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				4B72C954E14548CD8E8044D2 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -161,6 +203,17 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				73295262AE0F732495E28AF5 /* PrivacyInfo.xcprivacy in Resources */,
+				F74126CE5BE64B07B9B9AD06 /* Jost-400-Book.otf in Resources */,
+				FF382B6A12BB4EA09AE0A268 /* Jost-700-Bold.otf in Resources */,
+				3A71DDC65DEA4E61A5B72F27 /* Menu.ttf in Resources */,
+				C8925E4FD4AF4D9F85B69662 /* OpenSans-Light.ttf in Resources */,
+				29333D943E634F9598F8A76D /* OpenSans-LightItalic.ttf in Resources */,
+				577A1E1FFB744354BE5E170E /* OpenSans-SemiBold.ttf in Resources */,
+				9A5D135BBEC4492B820FEA8E /* Prompt-ExtraLight.ttf in Resources */,
+				00B2198B39964E1A97A01013 /* drip-home-icons.ttf in Resources */,
+				093424862E06480D9CCC06B1 /* drip-icon-font.ttf in Resources */,
+				A779D1804BB642B9989498C7 /* config-drip-home-icons.json in Resources */,
+				CD03E079C4A449B7A0EFF026 /* config-drip-icon-font.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
