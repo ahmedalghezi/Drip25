@@ -84,22 +84,23 @@ export const contraceptives = {
 
 export const pain = {
   categories: {
-    abdominalPain: 'unterleibschmerzen',
-    nausea: 'übelkeit',
-    backache: 'rückenschmerzen',
-    bloating: 'blähungen',
-    constipation: 'verstopfung',
-    diarrhea: 'durchfall',
-    hungerCravings: 'hunger-cravings',
-    sleepProblems: 'schlafprobleme',
-    breathingProblems: 'atemprobleme',
-    headache: 'kopfschmerzen',
-    badSkin: 'schlechteHaut',
-    dizziness: 'schwindel',
-    concentrationProblems: 'konzentrationsprobleme',
-    other: 'andere',
+    abdominalPain: 'Unterleibsschmerzen',
+    nausea: 'Übelkeit',
+    backache: 'Rückenschmerzen',
+    bloating: 'Blähungen',
+    constipation: 'Verstopfung',
+    diarrhea: 'Durchfall',
+    hungerCravings: 'Heißhunger',
+    sleepProblems: 'Schlafprobleme',
+    breathingProblems: 'Atemprobleme',
+    headache: 'Kopfschmerzen',
+    badSkin: 'Unreine Haut',
+    dizziness: 'Schwindel',
+    concentrationProblems: 'Konzentrationsprobleme',
+    incontinence:'Inkontinenz',
+    other: 'Sonstige',
   },
-  explainer: 'Was für Symptome hattest du heute?'
+  explainer: 'Welche Symptome hattest Du heute?'
 }
 
 export const mood = {

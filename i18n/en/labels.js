@@ -79,7 +79,7 @@ export const fertilityStatus = {
   preOvuText:
     "With NFP rules, you may assume 5 days of infertility at the beginning of your cycle.",
   periOvuText:
-    'We were not able to detect  a temperature shift.',
+    'Wir konnten keine Veränderung in deiner Temperatur feststellen',
   periOvuUntilEveningText: (tempRule) => {
     return (
       'We detected a temperature shift (' +
