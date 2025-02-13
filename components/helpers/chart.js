@@ -47,7 +47,7 @@ export function getTickList(columnHeight) {
   return getTickPositions(columnHeight).map((tickPosition, i) => {
     const tick = scaleMax - i * unit
     const isBold = Number.isInteger(tick) ? true : false
-    const label = tick.toFixed(1)
+    const label = `${tick.toFixed(1)}°C`
     let shouldShowLabel
 
     // when temp range <= 2, units === 0.1 we show temp values with step 0.2

@@ -30,12 +30,17 @@ const Stats = () => {
   const standardDeviation = cycleData.stdDeviation
     ? cycleData.stdDeviation
     : '—'
-  const statsData = [
-    [cycleData.minimum, t('overview.min')],
-    [cycleData.maximum, t('overview.max')],
-    [standardDeviation, t('overview.standardDeviation')],
-    [numberOfCycles, t('overview.completedCycles')],
-  ]
+
+const stdDeviation = cycleData.stdDeviation
+const meanWithStdDev = `±${stdDeviation.toFixed(1)}`
+
+const statsData = [
+  [cycleData.minimum, t('overview.min')],
+  [cycleData.maximum, t('overview.max')],
+  [meanWithStdDev, t('overview.standardDeviation')],
+  [numberOfCycles, t('overview.completedCycles')],
+]
+
 
   return (
     <SafeAreaView style={styles.pageContainer}>

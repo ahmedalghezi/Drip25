@@ -87,44 +87,15 @@ const PainSchema = {
     badSkin:{type: 'bool', optional: true},
     dizziness:{type: 'bool', optional: true},
     concentrationProblems:{type: 'bool', optional: true},
-    /*cramps: { type: 'bool', optional: true },*/
-    /*ovulationPain: { type: 'bool', optional: true },*/
     headache: { type: 'bool', optional: true },
     backache: { type: 'bool', optional: true },
     nausea: { type: 'bool', optional: true },
     tenderBreasts: { type: 'bool', optional: true },
-//    incontinence: {type: 'bool', optional: true},
-   /* migraine: { type: 'bool', optional: true },*/
+    incontinence: {type: 'bool', optional: true},
     other: { type: 'bool', optional: true },
     note: { type: 'string', optional: true }
   }
 }
-
-
-
-
-/*
-categories: {
-  abdominalPain: 'unterleibschmerzen',
-      nausea: 'übelkeit',
-      backache: 'rückenschmerzen',
-      bloating: 'blähungen',
-      constipation: 'verstopfung',
-      diarrhea: 'durchfall',
-      hungerCravings: 'hunger-cravings',
-      sleepProblems: 'schlafprobleme',
-      breathingProblems: 'atemprobleme',
-      headache: 'kopfschmerzen',
-      badSkin: 'schlechteHaut',
-      dizziness: 'schwindel',
-      concentrationProblems: 'konzentrationsprobleme',
-      other: 'andere',
-}
-*/
-
-
-
-
 const MoodSchema = {
   name: 'Mood',
   properties: {
@@ -136,7 +107,6 @@ const MoodSchema = {
     sad: { type: 'bool', optional: true },
     stressed: { type: 'bool', optional: true },
     balanced: { type: 'bool', optional: true },
-    /*fine: { type: 'bool', optional: true },*/
     anxious: { type: 'bool', optional: true },
     energetic: { type: 'bool', optional: true },
     fatigue: { type: 'bool', optional: true },
@@ -145,7 +115,6 @@ const MoodSchema = {
     note: { type: 'string', optional: true }
   }
 }
-
 
 const CycleDaySchema = {
   name: 'CycleDay',
@@ -205,8 +174,8 @@ export default {
     PainSchema,
     MoodSchema
   ],
-  schemaVersion: 4,
+  schemaVersion: 5,
   migration: (oldRealm) => {
-    if (oldRealm.schemaVersion >= 4) return
+    if (oldRealm.schemaVersion >= 5) return
   }
 }

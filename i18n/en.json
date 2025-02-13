@@ -5,7 +5,7 @@
     "stats": "Statistik"
   },
   "chart": {
-    "tutorial": "You can swipe the chart to view more dates."
+    "tutorial": "Sie können das Diagramm streichen, um weitere Daten anzuzeigen."
   },
   "cycleDay": {
     "symptomBox": {
@@ -30,7 +30,7 @@
       "addDataForToday": "Fügen Sie Daten für heute hinzu"
     },
     "shared": {
-      "cancel": "Cancel",
+      "cancel": "Abbrechen",
       "ok": "OK"
     }
   },
@@ -63,10 +63,10 @@
       "text": "It has the GNU General Public License v3.0 or later, originally set by Heart of Code e.V.\n\n It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details:"
     },
     "menuMain": {
-      "about": "About",
-      "license": "License",
-      "settings": "Settings",
-      "privacyPolicy": "Privacy Policy"
+      "about": "Über uns",
+      "license": "Lizenz",
+      "settings": "Einstellungen",
+      "privacyPolicy": "Datenschutz"
     },
     "privacyPolicy": {
       "title": "Privacy Policy",
@@ -113,47 +113,43 @@
         }
       },
       "menuItem": {
+        "reminders": {
+          "name": "Erinnerungen",
+          "text": "Schalte Erinnerungen ein oder aus"
+        },
         "dataManagement": {
           "name": "Data",
-          "text": "import, export or delete your data"
-        },
-        "nfpSettings": {
-          "name": "NFP settings",
-          "text": "define how you want to use NFP"
+          "text": "Importiere, exportiere oder lösche deine Daten"
         },
         "password": {
-          "name": "Password",
+          "name": "Passwort",
           "text": ""
-        },
-        "reminders": {
-          "name": "Reminders",
-          "text": "turn on/off reminders"
         }
       },
-      "title": "Settings"
+      "title": "Einstellungen"
     }
   },
   "stats": {
-    "noData": "At least one completed cycle is needed to display stats.",
-    "intro": "Basic statistics about the length of your cycles.",
+    "noData": "Mindestens ein abgeschlossener Zyklus wird benötigt, um Statistiken anzuzeigen.",
+    "intro": "Grundlegende Statistiken zur Länge deiner Zyklen.",
     "overview": {
-      "average": "Average cycle",
-      "days": "days",
-      "min": "Shortest",
-      "max": "Longest",
-      "standardDeviation": "Standard\ndeviation",
-      "completedCycles": "completed\ncycles"
+      "average": "Durchschn. Zyklus",
+      "days": "Tage",
+      "min": "Kürzester",
+      "max": "Längster",
+      "standardDeviation": "Std.-\nabweichung",
+      "completedCycles": "Abg. Zyklen"
     },
-    "showStats": "Show period details",
+    "showStats": "Zeige Details zur Periode",
     "details": {
-      "cycleStart": "Cycle start",
-      "cycleLength": "Cycle length",
-      "bleedingDays": "Bleeding"
+      "cycleStart": "Zyklusstart",
+      "cycleLength": "Zykluslänge",
+      "bleedingDays": "Blutung"
     },
-    "footnote": "Based on the standard deviation of all your tracked periods drip. calculates a range for the starting day of the upcoming 3 periods. The range will be 3 days if your standard deviation is smaller than 1.5 and 5 days if the value is bigger.\n\nThe standard deviation tells you how much the length of your periods vary, 0 means all your periods are exactly the same length and the bigger the value the more the period length varies."
+    "footnote": "Die Standardabweichung zeigt dir, wie stark deine Zykluslänge schwankt, d.h. wie regelmäßig oder unregelmäßig deine Periode ist. Schwankungen in der Zykluslänge sind völlig normal. Sind die Schwankungen allerdings zu hoch oder beeinträchtigen dich im Alltag, solltest du diese mit einer medizinischen Fachperson besprechen. Solltest du Unterstützung bei der Kontaktaufnahme benötigen, melde dich gerne unter einwilligung@inprove.info"
   },
   "plurals": {
-    "day": "{{count}} day",
-    "day_plural": "{{count}} days"
+    "day": "{{count}} Tag",
+    "day_plural": "{{count}} Tage"
   }
 }

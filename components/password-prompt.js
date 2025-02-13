@@ -7,11 +7,10 @@ import {
   View,
   Text,
   ActivityIndicator,
-  TouchableOpacity,
 } from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import CheckBox from '@react-native-community/checkbox';
+import CheckBox from 'react-native-check-box';
 
 import AppPage from './common/app-page';
 import AppTextInput from './common/app-text-input';
@@ -19,11 +18,11 @@ import Segment from './common/segment';
 import Button from './common/button';
 import Header from './header';
 import ConfirmWithPassword from './settings/common/confirm-with-password';
-import Logo from '../assets/inprove_logo_transparent1.jpg';
+import Logo from '../assets/inprove_logo_transparent.png';
 import { Image } from 'react-native';
 
 import { saveEncryptionFlag } from '../local-storage';
-import { deleteDbAndOpenNew, openDb } from '../db';
+import { deleteDbAndOpenNew } from '../db';
 import { passwordPrompt as labels, shared } from '../i18n/en/labels';
 import { Containers, Spacing } from '../styles';
 
@@ -71,7 +70,7 @@ const PasswordPrompt = ({ enableShowApp }) => {
           if (response.status === 200) {
             if (response.data.res === 'ok') {
               // Save the login code to local storage
-              if(response.data.code)
+              if (response.data.code)
                 await AsyncStorage.setItem('loginCode', response.data.code);
               enableShowApp();
             } else if (response.data.res === 'wrong') {
@@ -210,22 +209,16 @@ const PasswordPrompt = ({ enableShowApp }) => {
                 secureTextEntry={true}
                 placeholder={labels.enterPassword}
             />
-            {/* Agreement checkbox */}
+            {/* Agreement checkbox with checkbox on the left */}
             <View style={styles.checkboxContainer}>
               <CheckBox
-                  value={isAgreed}
-                  onValueChange={setIsAgreed}
-                  tintColors={{ true: '#007AFF', false: '#8e8e93' }}
+                  style={styles.checkbox}
+                  onClick={() => setIsAgreed(!isAgreed)}
+                  isChecked={isAgreed}
               />
-              <TouchableOpacity
-                  onPress={() => setIsAgreed(!isAgreed)}
-                  style={styles.checkboxLabelContainer}
-              >
-                <Text style={styles.checkboxLabel}>
-                  Ich stimme zu, dass die in dieser App aufgezeichneten Daten an den in:prove Server gesendet
-                  und dort mit meinen Daten gespeichert werden.
-                </Text>
-              </TouchableOpacity>
+              <Text style={styles.checkboxLabel}>
+                Ich stimme zu, dass die in dieser App aufgezeichneten Daten an den in:prove Server gesendet und dort mit meinen Daten gespeichert werden.
+              </Text>
             </View>
             <View style={styles.containerButtons}>
               <Button
@@ -272,12 +265,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 10,
   },
-  checkboxLabelContainer: {
-    flex: 1,
+  checkbox: {
+    padding: 10,
   },
   checkboxLabel: {
     fontSize: 14,
     color: '#333',
+    marginLeft: 8, // Added margin for spacing between checkbox and text
+    flexShrink: 1,
   },
 });
 

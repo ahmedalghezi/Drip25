@@ -14,10 +14,10 @@ export default {
     title: 'My drip. data export',
     subject: 'My drip. data export',
     //button: 'Export Data',
-    button: 'Send data ', // New main export button
+    button: 'Daten senden', // New main export button
    // manual: 'Export Data manually',
     segmentExplainer:
-      'Export data to inprov database'
+      'Exportiere deine Daten in die in:prove Datenbank'
       //'Export data in CSV format for backup or so you can use it elsewhere',
   },
   exportAutomatic: {
@@ -29,13 +29,13 @@ export default {
       title: 'My drip. data export',
       subject: 'My drip. data export',
       //button: 'Export Data',
-      button: 'Send Data automatically', // New main export button
+      button: 'Daten automatisch senden', // New main export button
       segmentExplainer:
         'Export data to inprov database'
     },
   deleteSegment: {
-    title: 'Delete app data',
-    explainer: 'Delete app data from this phone',
+    title: 'Lösche die App-Daten',
+    explainer: 'Lösche die App-Daten von diesem Handy',
     question: 'Do you want to delete app data from this phone?',
     message:
       'Please note that deletion of the app data is permanent and irreversible. We recommend exporting existing data before deletion.',
@@ -59,15 +59,15 @@ export default {
     saveError: 'Could not save temperature scale settings',
   },
   tempReminder: {
-    title: 'Temperature reminder',
-    noTimeSet: 'Set a time for a daily reminder to take your temperature',
+    title: 'Erinnerung zur Temperaturmessung',
+    noTimeSet: 'Bestimme eine Zeit für eine tägliche Erinnerung zur Temperaturmessung',
     timeSet: (time) => `Daily reminder set for ${time}`,
     notification: 'Record your morning temperature',
   },
   periodReminder: {
-    title: 'Next period reminder',
+    title: 'Erinnerung für Deine nächste Blutung',
     reminderText:
-      'Get a notification 3 days before your next period is likely to start.',
+      'Erhalte 3 Tage vor Beginn Deiner nächsten Periode eine Nachricht als Erinnerung',
     notification: (daysToEndOfPrediction) =>
       `Your next period is likely to start in 3 to ${daysToEndOfPrediction} days.`,
   },
@@ -79,14 +79,14 @@ export default {
       'By default, cervical mucus values are being used for symptothermal fertility detection. You can switch here to use cervix values for symptothermal fertility detection',
   },
   passwordSettings: {
-    title: 'App password',
+    title: 'Passwort',
     explainerDisabled:
-      "Encrypt the app's database with a password. You need to enter the password every time the app is started.",
+      "Hier kannst du dein Passwort ändern. Bitte beachte, dass die App mit der in:prove-Datenbank verknüpft ist. Änderst du hier das Passwort, ändert es sich automatisch auch auf der Datenbank.",
     explainerEnabled:
       'Password protection and database encryption is currently enabled',
     setPassword: 'Set password',
     savePassword: 'Save password',
-    changePassword: 'Change password',
+    changePassword: 'Ändere das Passwort',
     deletePassword: 'Delete password',
     forgotPassword: 'Forgot your password?',
     enterCurrent: 'Please enter your current password',

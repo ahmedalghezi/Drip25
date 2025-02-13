@@ -60,25 +60,30 @@ export function getBleedingPredictionRange(prediction) {
   return daysToEnd === 0 ? '0' : `0 - ${daysToEnd}`
 }
 
+//export function getOrdinalSuffix(num) {
+//  const j = num % 10
+//  const k = num % 100
+//
+//  if (j === 1 && k !== 11) {
+//    return 'st'
+//  }
+//
+//  if (j === 2 && k !== 12) {
+//    return 'nd'
+//  }
+//
+//  if (j === 3 && k !== 13) {
+//    return 'rd'
+//  }
+//
+//  return 'th'
+//}
 export function getOrdinalSuffix(num) {
-  const j = num % 10
-  const k = num % 100
-
-  if (j === 1 && k !== 11) {
-    return 'st'
-  }
-
-  if (j === 2 && k !== 12) {
-    return 'nd'
-  }
-
-  if (j === 3 && k !== 13) {
-    return 'rd'
-  }
-
-  return 'th'
+    return '.'
 }
-
+//export function formatWithOrdinalSuffix(num) {
+//  return num + getOrdinalSuffix(num)
+//}
 export function formatWithOrdinalSuffix(num) {
-  return num + getOrdinalSuffix(num)
+  return `${num}.`; // Add a period after the day number as per German convention
 }

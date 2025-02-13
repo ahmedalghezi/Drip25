@@ -82,21 +82,23 @@ ${generalInfo.nfpTfyReminder}`,
   },
   note: {
     title: 'Notes',
-    text: `Note allows you to track any extra information you want to save. It is the only category that can store information for a date in the future. This can be helpful for reminding you of an appointment.
-
-${generalInfo.noNfpSymptom}
-
-${generalInfo.curiousNfp}`,
+    text: 'In den Notizen kannst du weitere Informationen sammeln, die für dich relevant sein könnten. Beispielsweise könnte eine Flugreise, eine Grippe oder ein Trainingslager die Regelmäßigkeit in deinem Zyklus verändern. Je mehr Informationen du zu deinem Zyklus sammelst, desto besser lernst du ihn einschätzen zu können.'
+//    text: `Note allows you to track any extra information you want to save. It is the only category that can store information for a date in the future. This can be helpful for reminding you of an appointment.
+//
+//${generalInfo.noNfpSymptom}
+//
+//${generalInfo.curiousNfp}`,
   },
   pain: {
     title: 'Tracking pain',
-    text: `The app allows you to keep track of different kinds of pain you experience.
+    text: `Gewisse Symptome können mit deinem Zyklus zusammenhängen. Durch das Tracking kannst du herausfinden, ob gewisse Symptome in einer Regelmäßigkeit vorkommen. das ermöglicht dir Strategien zu entwickeln, diese Symptome zu verbessern oder besser mit ihnen umgehen zu können.`
+//    text: `The app allows you to keep track of different kinds of pain you experience.
 
-${generalInfo.cycleRelation}
+//${generalInfo.cycleRelation}
 
-${generalInfo.noNfpSymptom}
+//${generalInfo.noNfpSymptom}
 
-${generalInfo.curiousNfp}`,
+//${generalInfo.curiousNfp}`,
   },
   sex: {
     title: 'Tracking sex and contraceptives',

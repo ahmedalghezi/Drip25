@@ -84,7 +84,7 @@ export const contraceptives = {
 
 export const pain = {
   categories: {
-    abdominalPain: 'Unterleibsschmerzen',
+abdominalPain: 'Unterleibsschmerzen',
     nausea: 'Übelkeit',
     backache: 'Rückenschmerzen',
     bloating: 'Blähungen',
@@ -105,20 +105,21 @@ export const pain = {
 
 export const mood = {
   categories: {
-    happy: 'glücklich',
-    sad: 'traurig',
-    stressed: 'gestresst',
-    balanced: 'ausgeglichen',
-    anxious: 'ängstlich',
-    energetic: 'energiegeladen',
-    fatigue: 'müde',
-    irritated: 'gereizt',
-    angry: 'wütend',
-    driveless: 'antriebslos',
-    motivated: 'motiviert',
-    emotional: 'emotional',
-    other: 'anderes',
-  },
+                  happy: "Glücklich",
+                  sad: "Traurig",
+                  stressed: "Gestresst",
+                  balanced: "Ausgeglichen",
+                  anxious: "Ängstlich",
+                  energetic: "Energiegeladen",
+                  fatigue: "Müde",
+                  irritated: "Gereizt",
+                  angry: "Wütend",
+                  driveless: "Antriebslos",
+                  motivated: "Motiviert",
+                  emotional: "Emotional",
+                  other: "Anderes"
+              }
+,
   explainer: 'Wie hast du dich heute gefühlt?'
 }
 

@@ -4,6 +4,7 @@ const moment = require('moment')
 describe('Date', () => {
   beforeEach(async () => {
     await device.reloadReactNative()
+    moment.locale('de')
   })
 
   it('should have same date when navigating between cycle day and symptom view', async () => {
@@ -17,8 +18,8 @@ describe('Date', () => {
 
     const today = LocalDate.now()
     const yesterday = today.minusDays(1)
-    const yesterdayFormatted = moment(
-      yesterday.toString()).format('MMMM Do YYYY')
+    // Format yesterday's date in German style
+        const yesterdayFormatted = moment(yesterday.toString()).format('D. MMM YYYY')
       .toLowerCase()
 
     await expect(
