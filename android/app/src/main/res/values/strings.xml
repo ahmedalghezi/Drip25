@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Drip25</string>
+    <string name="locale_de">de</string>
 </resources>

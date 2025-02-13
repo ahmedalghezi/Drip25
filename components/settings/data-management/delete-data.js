@@ -133,7 +133,7 @@ const DeleteData = ({ onStartDeletion, isDeletingData }) => {
         </Button>
         {code !== null && (
             <Button isCTA onPress={alertBeforeInproveDeletion}>
-              delete my app data on in:prove
+              Lösche meine App-Daten auf in:prove
             </Button>
         )}
       </>

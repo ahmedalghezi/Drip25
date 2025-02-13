@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, View } from 'react-native'
 import { CalendarList } from 'react-native-calendars'
-
+import moment from 'moment';
+import 'moment/locale/de';
 import { getBleedingDaysSortedByDate } from '../db'
 import cycleModule from '../lib/cycle'
 import {
@@ -30,17 +31,41 @@ const CalendarView = ({ setDate, navigate }) => {
 
   return (
     <View style={styles.container}>
-      <CalendarList
-        // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
-        firstDay={1}
-        onDayPress={passDateToDayView}
-        markedDates={markedDates}
-        markingType="custom"
-        theme={calendarTheme}
-        // Max amount of months allowed to scroll to the past.
-        pastScrollRange={120}
-      />
+        <CalendarList
+            // Explicitly set German locale and customization
+            locale="de"
+            firstDay={1}
+            // Add German month names
+            monthNames={['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']}
+            // Add German day names
+            dayNames={['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag']}
+            // Add German short day names
+            dayNamesShort={['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']}
+            monthNamesShort={['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sept.', 'Okt.', 'Nov.', 'Dez.']}
+            onDayPress={passDateToDayView}
+            monthFormat={'MMMM yyyy'}
+            markedDates={markedDates}
+            markingType="custom"
+            theme={{
+                ...calendarTheme,
+
+            }}
+            pastScrollRange={120}
+        />
     </View>
+
+
+//      <CalendarList
+//        // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
+//        firstDay={1}
+//        onDayPress={passDateToDayView}
+//        markedDates={markedDates}
+//        markingType="custom"
+//        theme={calendarTheme}
+//        // Max amount of months allowed to scroll to the past.
+//        pastScrollRange={120}
+//      />
+//    </View>
   )
 }
 

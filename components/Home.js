@@ -39,13 +39,52 @@ const Home = ({ navigate, setDate }) => {
     ? formatWithOrdinalSuffix(cycleDayNumber)
     : ''
 
+//  return (
+//    <ScrollView
+//      style={styles.container}
+//      contentContainerStyle={styles.contentContainer}
+//    >
+//      <AppText style={styles.title}>{moment().format('MMM Do YYYY')}</AppText>
+//
+//      {cycleDayNumber && (
+//        <View style={styles.line}>
+//          <AppText style={styles.redSubtitle}>{cycleDayText}</AppText>
+//          <AppText style={styles.turquoiseText}>
+//            {t('labels.home.cycleDay')}
+//          </AppText>
+//        </View>
+//      )}
+////      {phase && (
+////        <View style={styles.line}>
+////          <AppText style={styles.redSubtitle}>
+////            {formatWithOrdinalSuffix(phase)}
+////          </AppText>
+////          <AppText style={styles.turquoiseText}>
+////            {t('labels.home.cyclePhase')}
+////          </AppText>
+//////          <AppText style={styles.turquoiseText}>{status}</AppText>
+////          <Asterisk />
+////        </View>
+////      )}
+////      <View style={styles.line}>
+////        <AppText style={styles.turquoiseText}>{prediction}</AppText>
+////      </View>
+//      <Button isCTA isSmall={false} onPress={navigateToCycleDayView}>
+//        {t('labels.home.addDataForToday')}
+//       </Button>
+////      {phase && <Footnote colorLabel="black">{statusText}</Footnote>}
+//    </ScrollView>
+//  )
+//}
   return (
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
     >
+      {/* Title with current date */}
       <AppText style={styles.title}>{moment().format('MMM Do YYYY')}</AppText>
 
+      {/* Cycle Day Display */}
       {cycleDayNumber && (
         <View style={styles.line}>
           <AppText style={styles.redSubtitle}>{cycleDayText}</AppText>
@@ -54,28 +93,17 @@ const Home = ({ navigate, setDate }) => {
           </AppText>
         </View>
       )}
-      {phase && (
-        <View style={styles.line}>
-          <AppText style={styles.redSubtitle}>
-            {formatWithOrdinalSuffix(phase)}
-          </AppText>
-          <AppText style={styles.turquoiseText}>
-            {t('labels.home.cyclePhase')}
-          </AppText>
-          <AppText style={styles.turquoiseText}>{status}</AppText>
-          <Asterisk />
-        </View>
-      )}
-      <View style={styles.line}>
-        <AppText style={styles.turquoiseText}>{prediction}</AppText>
-      </View>
+
+      {/* Button to Add Data for Today */}
       <Button isCTA isSmall={false} onPress={navigateToCycleDayView}>
         {t('labels.home.addDataForToday')}
-       </Button>
-      {phase && <Footnote colorLabel="black">{statusText}</Footnote>}
+      </Button>
+
+      {/* Footnote */}
+      <Footnote colorLabel="black">{statusText}</Footnote>
     </ScrollView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
