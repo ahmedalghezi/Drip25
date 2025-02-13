@@ -334,7 +334,7 @@ const label = {
   },
   temperature: ({ value, time, exclude }) => {
     if (isNumber(value)) {
-      let temperatureLabel = `${value} °C`
+      let temperatureLabel = `${value}°C`
       if (time) {
         temperatureLabel += ` - ${time}`
       }

@@ -18,7 +18,7 @@ import Segment from './common/segment';
 import Button from './common/button';
 import Header from './header';
 import ConfirmWithPassword from './settings/common/confirm-with-password';
-import Logo from '../assets/inprove_logo_transparent1.jpg';
+import Logo from '../assets/inprove_logo_transparent.png';
 import { Image } from 'react-native';
 
 import { saveEncryptionFlag } from '../local-storage';

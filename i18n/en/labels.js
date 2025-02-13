@@ -6,6 +6,7 @@ export const home = {
 export const shared = {
   cancel: 'Cancel',
   save: 'Erledigt',
+  today: 'Heute',
   dataSaved: 'Symptom data was saved',
   dataDeleted: 'Symptom data was deleted',
   errorTitle: 'Error',
@@ -21,7 +22,7 @@ export const shared = {
   tryAgain: 'Try again',
   ok: 'OK',
   confirmToProceed: 'Confirm to proceed',
-  date: 'Date',
+  date: 'Datum',
   loading: 'Loading ...',
   noDataWarning: "You haven't entered any data yet.",
   noTemperatureWarning: "You haven't entered any temperature data yet.",
@@ -42,17 +43,29 @@ export const stats = {
   stdLabel: `Standard\ndeviation`,
 }
 
+//export const bleedingPrediction = {
+//  predictionInFuture: (startDays, endDays) =>
+//    `Your next period is likely to start in ${startDays} to ${endDays} days.`,
+//  predictionStartedXDaysLeft: (numberOfDays) =>
+//    `Your period is likely to start today or within the next ${numberOfDays} days.`,
+//  predictionStarted1DayLeft:
+//    'Your period is likely to start today or tomorrow.',
+//  predictionStartedNoDaysLeft: 'Your period is likely to start today.',
+//  predictionInPast: (startDate, endDate) =>
+//    `Based on your documented data, your period was likely to start between ${startDate} and ${endDate}.`,
+//}
 export const bleedingPrediction = {
   predictionInFuture: (startDays, endDays) =>
-    `Your next period is likely to start in ${startDays} to ${endDays} days.`,
+    `Deine nächste Periode wird voraussichtlich in ${startDays} bis ${endDays} Tagen beginnen.`,
   predictionStartedXDaysLeft: (numberOfDays) =>
-    `Your period is likely to start today or within the next ${numberOfDays} days.`,
+    `Deine Periode wird voraussichtlich heute oder innerhalb der nächsten ${numberOfDays} Tage beginnen.`,
   predictionStarted1DayLeft:
-    'Your period is likely to start today or tomorrow.',
-  predictionStartedNoDaysLeft: 'Your period is likely to start today.',
+    'Deine Periode wird voraussichtlich heute oder morgen beginnen.',
+  predictionStartedNoDaysLeft: 'Deine Periode wird voraussichtlich heute beginnen.',
   predictionInPast: (startDate, endDate) =>
-    `Based on your documented data, your period was likely to start between ${startDate} and ${endDate}.`,
+    `Auf Basis Deiner Dokumentation, wird deine Blutung höchstwahrscheinlich zwischen ${startDate} und ${endDate} gestartet sein.`,
 }
+
 
 export const passwordPrompt = {
   title: 'Anmelden',
@@ -75,11 +88,11 @@ export const fertilityStatus = {
   infertile: 'infertile',
   fertileUntilEvening: 'Fertile phase ends in the evening',
   unknown:
-    'We cannot show any cycle information because no period data has been added.',
+    'Wir können keine Zyklusinformationen anzeigen, da keine Periodendaten hinzugefügt wurden.',
   preOvuText:
     "With NFP rules, you may assume 5 days of infertility at the beginning of your cycle.",
   periOvuText:
-    'We were not able to detect  a temperature shift.',
+    'Wir konnten keine Veränderung in deiner Temperatur feststellen',
   periOvuUntilEveningText: (tempRule) => {
     return (
       'We detected a temperature shift (' +

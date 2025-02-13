@@ -69,13 +69,13 @@ const ItemDivider = () => <View style={styles.divider} />
 const FlatListHeader = () => (
   <View style={styles.row}>
     <View style={styles.accentCell}>
-      <AppText style={styles.header}>{'Cycle Start'}</AppText>
+      <AppText style={styles.header}>{'Zyklusstart'}</AppText>
     </View>
     <View style={styles.cell}>
-      <AppText style={styles.header}>{'Cycle Length'}</AppText>
+      <AppText style={styles.header}>{'Zykluslänge'}</AppText>
     </View>
     <View style={styles.cell}>
-      <AppText style={styles.header}>{'Bleeding'}</AppText>
+      <AppText style={styles.header}>{'Blutung'}</AppText>
     </View>
   </View>
 )
