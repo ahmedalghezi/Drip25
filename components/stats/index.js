@@ -31,13 +31,13 @@ const Stats = () => {
     ? cycleData.stdDeviation
     : '—'
 
-const stdDeviation = cycleData.stdDeviation
-const meanWithStdDev = `±${stdDeviation.toFixed(1)}`
+//const stdDeviation = cycleData.stdDeviation
+//const meanWithStdDev = `±${stdDeviation.toFixed(1)}`
 
 const statsData = [
   [cycleData.minimum, t('overview.min')],
   [cycleData.maximum, t('overview.max')],
-  [meanWithStdDev, t('overview.standardDeviation')],
+  [`±${standardDeviation}`, t('overview.standardDeviation')],
   [numberOfCycles, t('overview.completedCycles')],
 ]
 
