@@ -29,7 +29,7 @@ const Stats = () => {
       : { minimum: '—', maximum: '—', stdDeviation: '—' }
   const standardDeviation = cycleData.stdDeviation
     ? cycleData.stdDeviation
-    : '—'
+    : '0'
 
 //const stdDeviation = cycleData.stdDeviation
 //const meanWithStdDev = `±${stdDeviation.toFixed(1)}`
@@ -37,7 +37,7 @@ const Stats = () => {
 const statsData = [
   [cycleData.minimum, t('overview.min')],
   [cycleData.maximum, t('overview.max')],
-  [`±${standardDeviation}`, t('overview.standardDeviation')],
+//  [`±${standardDeviation}`, t('overview.standardDeviation')],
   [numberOfCycles, t('overview.completedCycles')],
 ]
 
@@ -67,9 +67,14 @@ const statsData = [
                   <AppText style={styles.accentPurpleHuge}>
                     {t('overview.days')}
                   </AppText>
+                     <AppText style={styles.accentOrangeSpc}>
+                          {t('overview.average')}
+                  </AppText>
                 </ImageBackground>
-                <AppText style={styles.accentOrange}>
-                  {t('overview.average')}
+
+                <AppText style={styles.accentPurpleSmall}>
+                  {`± ${standardDeviation} Tage`}
+                  <AppText style={{ ...styles.accentPurpleSmall, verticalAlign: 'super' }}>*</AppText>
                 </AppText>
               </View>
               <View style={styles.columnRight}>
@@ -99,10 +104,19 @@ const styles = ScaledSheet.create({
     ...Typography.accentOrange,
     fontSize: Sizes.small,
   },
+  accentOrangeSpc: {
+      ...Typography.accentOrangeSpc,
+      paddingHorizontal: Spacing.base,
+      marginBottom: Spacing.base,
+   },
   accentPurpleGiant: {
     ...Typography.accentPurpleGiant,
     marginTop: Spacing.base * -2,
   },
+  accentPurpleSmall: {
+      ...Typography.accentPurpleSmall,
+      marginTop: Spacing.base * -1  ,
+    },
   accentPurpleHuge: {
     ...Typography.accentPurpleHuge,
     marginTop: Spacing.base * -1,
@@ -114,12 +128,12 @@ const styles = ScaledSheet.create({
   },
   columnLeft: {
     ...column,
-    flex: 3,
+    flex: 4,
     paddingHorizontal: Spacing.large,
   },
-  columnRight: {
+  columnRight:{
     ...column,
-    flex: 5,
+    flex: 6,
     paddingTop: Spacing.small,
   },
   image: {
