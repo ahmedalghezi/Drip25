@@ -46,6 +46,11 @@ const accentTextSmall = {
   fontSize: sizes.small
 }
 
+const accentTextXSmall = {
+  ...accentText,
+  fontSize: scale(10),
+}
+
 const accentTextSmallBig = {
   ...accentText,
   fontSize: scale(22),
@@ -66,12 +71,16 @@ export default {
     ...accentTextSmall,
     color: Colors.orange
   },
+  accentOrangeSpc: {
+    ...accentTextXSmall,
+     color: Colors.orange
+  },
   accentPurpleBig: {
     ...accentTextBig,
     color: Colors.purple
   },
   accentPurpleSmall: {
-      ...accentTextSmallBig,
+      ...accentTextSmall,
       color: Colors.purple
     },
   accentPurpleGiant: {

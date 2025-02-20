@@ -38,9 +38,9 @@ Row.propTypes = {
 const Cell = ({ content, isLeft, hasAsterisk }) => {
   const styleContainer = isLeft ? styles.cellLeft : styles.cellRight;
   const styleText = isLeft
-    ? styles.accentPurpleSmall
+    ? styles.accentPurpleBig
     : hasAsterisk
-    ? styles.accentOrangeSmall // Apply smaller font size for standard deviation
+    ? styles.accentOrange
     : styles.accentOrange;
 
   const numberOfLines = isLeft ? 1 : 2;
