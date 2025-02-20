@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, View } from 'react-native'
-import { CalendarList } from 'react-native-calendars'
+import { CalendarList, LocaleConfig } from 'react-native-calendars'
 import moment from 'moment';
 import 'moment/locale/de';
 import { getBleedingDaysSortedByDate } from '../db'
@@ -12,6 +12,57 @@ import {
   toCalFormat,
   todayToCalFormat,
 } from './helpers/calendar'
+
+
+
+
+LocaleConfig.locales['de'] = {
+  monthNames: [
+    'Januar',
+    'Februar',
+    'März',
+    'April',
+    'Mai',
+    'Juni',
+    'Juli',
+    'August',
+    'September',
+    'Oktober',
+    'November',
+    'Dezember'
+  ],
+  monthNamesShort: [
+    'Jan.',
+    'Feb.',
+    'Mär.',
+    'Apr.',
+    'Mai',
+    'Jun.',
+    'Jul.',
+    'Aug.',
+    'Sep.',
+    'Okt.',
+    'Nov.',
+    'Dez.'
+  ],
+  dayNames: [
+    'Sonntag',
+    'Montag',
+    'Dienstag',
+    'Mittwoch',
+    'Donnerstag',
+    'Freitag',
+    'Samstag'
+  ],
+  dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+  today: 'Heute'
+};
+
+// Set German as the default locale
+LocaleConfig.defaultLocale = 'de';
+
+
+
 
 const CalendarView = ({ setDate, navigate }) => {
   const bleedingDays = getBleedingDaysSortedByDate()

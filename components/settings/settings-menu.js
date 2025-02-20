@@ -10,7 +10,7 @@ const menuItems = [
   { label: 'reminders', componentName: 'Reminders' },
   /*{ label: 'nfpSettings', componentName: 'NfpSettings' },*/
   { label: 'dataManagement', componentName: 'DataManagement' },
-  { label: 'password', componentName: 'Password' },
+  /*{ label: 'password', componentName: 'Password' }*/,
 ]
 
 const SettingsMenu = ({ navigate }) => {

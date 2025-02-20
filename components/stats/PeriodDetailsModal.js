@@ -72,7 +72,7 @@ const FlatListHeader = () => (
       <AppText style={styles.header}>{'Zyklusstart'}</AppText>
     </View>
     <View style={styles.cell}>
-      <AppText style={styles.header}>{'Zykluslänge'}</AppText>
+      <AppText style={styles.header}>{'Zykllänge'}</AppText>
     </View>
     <View style={styles.cell}>
       <AppText style={styles.header}>{'Blutung'}</AppText>
@@ -89,6 +89,8 @@ const styles = StyleSheet.create({
   header: {
     ...Typography.accentOrange,
     paddingVertical: Spacing.small,
+      fontSize: 12,
+      justifyContent: 'center'
   },
   headerDivider: {
     borderBottomColor: Colors.purple,

@@ -55,14 +55,15 @@ const DeleteData = ({ onStartDeletion, isDeletingData }) => {
   // New function: warn the user before deleting data on in:prove.
   const alertBeforeInproveDeletion = () => {
     Alert.alert(
-        'Delete Data on in:prove',
-        'Are you sure you want to delete your app data on in:prove? This action cannot be undone.',
+        'Daten bei in:prove löschen',
+        'Bist du sicher, dass du deine App-Daten bei in:prove löschen möchtest? Diese Aktion kann nicht rückgängig gemacht werden.',
         [
           { text: sharedLabels.cancel, style: 'cancel' },
-          { text: 'Delete', onPress: deleteMyAppDataOnInprove },
+          { text: 'Löschen', onPress: deleteMyAppDataOnInprove },
         ]
     )
   }
+
 
   const deleteExportedFile = async () => {
     if (await RNFS.exists(exportedFilePath)) {
@@ -101,14 +102,16 @@ const DeleteData = ({ onStartDeletion, isDeletingData }) => {
       const result = await response.json()
 
       if (result.res === 'ok') {
-        showToast('The deletion request is applied successfully on in:prove')
+        showToast('Die Löschanfrage wurde erfolgreich bei in:prove ausgeführt')
       } else {
-        alertError('Failed to delete app data on in:prove')
+        alertError('Das Löschen der App-Daten bei in:prove ist fehlgeschlagen')
       }
     } catch (err) {
-      alertError(err.message || 'An error occurred while deleting data on in:prove')
+
+      alertError(err.message || 'Beim Löschen der Daten bei in:prove ist ein Fehler aufgetreten')
     }
   }
+
 
   const cancelConfirmationWithPassword = () => {
     setIsConfirmingWithPassword(false)

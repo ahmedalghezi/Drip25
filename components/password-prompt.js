@@ -408,6 +408,18 @@ export const getCode = async () => {
   }
 };
 
+export const logout = async () => {
+  try {
+    await AsyncStorage.removeItem('loginCode');
+  } catch (error) {
+    console.error('Failed to retrieve login code', error);
+  }
+};
+
+
+
+
+
 // Helper function to check if current session is a guest session
 export const isGuestSession = async () => {
   try {

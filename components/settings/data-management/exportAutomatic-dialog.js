@@ -7,6 +7,7 @@ import settings from '../../../i18n/en/settings'
 import { EXPORT_FILE_NAME } from './constants'
 import RNFS from 'react-native-fs'
 import { DeviceEventEmitter } from 'react-native';
+import {getCode} from '../../password-prompt';
 
 export default async function configureDataExport() {
 
@@ -23,25 +24,29 @@ export default async function configureDataExport() {
 
         const jsonData = JSON.stringify(cycleDaysByDate);
         console.log(jsonData)
-        const response = await axios.post('https://inprove-sport.info/csv/cycle/post_data', jsonData, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+        const code = await getCode();
+        if(code) {
+          const payload = { code, jsonData };
+          const response = await axios.post('https://inprove-sport.info/csv/cycle/post_data', payload, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
 
-        if (response.status === 200) {
-          const responseData = response.data;
-          if (responseData.res === 'ok') {
-            console.log('Data exported successfully', responseData.res);
-          } else if (responseData.res === 'no') {
-            console.log('Not signed in');
+          if (response.status === 200) {
+            const responseData = response.data;
+            if (responseData.res === 'ok') {
+              console.log('Data exported successfully', responseData.res);
+            } else if (responseData.res === 'no') {
+              console.log('Not signed in');
+            } else {
+              console.log('Unexpected response:', responseData);
+              return alertError(labels.errors.problemSendingData);
+            }
           } else {
-            console.log('Unexpected response:', responseData);
+            console.log('Export failed with status:', response.status);
             return alertError(labels.errors.problemSendingData);
           }
-        } else {
-          console.log('Export failed with status:', response.status);
-          return alertError(labels.errors.problemSendingData);
         }
       } catch (error) {
         console.error('An error occurred during export:', error);

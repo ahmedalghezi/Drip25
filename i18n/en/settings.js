@@ -9,7 +9,7 @@ export default {
       notSignedIn: 'User not signed in',
     },
     success:{
-        message: 'Data succesfully sent to inprov',
+        message: 'Data succesfully sent to in:prove',
     },
     title: 'My drip. data export',
     subject: 'My drip. data export',
@@ -35,18 +35,17 @@ export default {
     },
   deleteSegment: {
     title: 'Lösche die App-Daten',
-    explainer: 'Lösche die App-Daten von diesem Handy',
-    question: 'Do you want to delete app data from this phone?',
-    message:
-      'Please note that deletion of the app data is permanent and irreversible. We recommend exporting existing data before deletion.',
-    confirmation: 'Delete app data permanently',
-    errors: {
-      couldNotDeleteFile: 'Could not delete data',
-      postFix: 'No data was deleted or changed',
-      noData: 'There is no data to delete',
+    explainer: 'Lösche die App-Daten von diesem Handy. Wenn du irgendwelche an in:prove gesendeten Daten löschen möchtest, kontaktiere bitte admin@inprove-sport.info.',
+    question: 'Möchtest du die App-Daten von diesem Telefon löschen?',
+    "message": "Bitte beachte, dass das Löschen der App-Daten dauerhaft und unwiderruflich ist. Wir empfehlen, die vorhandenen Daten vor dem Löschen zu exportieren.",
+    "confirmation": "App-Daten dauerhaft löschen",
+    "errors": {
+      "couldNotDeleteFile": "Daten konnten nicht gelöscht werden",
+      "postFix": "Keine Daten wurden gelöscht oder verändert",
+      "noData": "Es gibt keine Daten zum Löschen"
     },
     success: {
-      message: 'App data successfully deleted',
+      message: "App-Daten erfolgreich gelöscht",
     },
   },
   tempScale: {
@@ -87,13 +86,13 @@ export default {
     setPassword: 'Set password',
     savePassword: 'Save password',
     changePassword: 'Ändere das Passwort',
-    deletePassword: 'Delete password',
-    forgotPassword: 'Forgot your password?',
-    enterCurrent: 'Please enter your current password',
-    enterEmail: 'Please enter your email-address',
-    enterNew: 'Please enter a new password',
-    confirmPassword: 'Please confirm your password',
-    passwordsDontMatch: "Password and confirmation don't match",
+    "deletePassword": "Passwort löschen",
+    "forgotPassword": "Hast du dein Passwort vergessen?",
+    "enterCurrent": "Bitte gib dein aktuelles Passwort ein",
+    "enterEmail": "Bitte gib deine E-Mail-Adresse ein",
+    "enterNew": "Bitte gib ein neues Passwort ein",
+    "confirmPassword": "Bitte bestätige dein Passwort",
+    "passwordsDontMatch": "Passwort und Bestätigung stimmen nicht überein",
     backupReminder: {
       title: 'Read this before making changes to your password',
       message: `
