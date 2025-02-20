@@ -73,7 +73,7 @@ const statsData = [
                 </AppText>
               </View>
               <View style={styles.columnRight}>
-                <StatsOverview data={statsData} />
+                <StatsOverview data={statsData} textStyle={{ fontSize: '8' }} />
               </View>
             </View>
             <Button isCTA onPress={() => setIsStatsVisible(true)}>
@@ -115,6 +115,7 @@ const styles = ScaledSheet.create({
   columnLeft: {
     ...column,
     flex: 3,
+    paddingHorizontal: Spacing.large,
   },
   columnRight: {
     ...column,

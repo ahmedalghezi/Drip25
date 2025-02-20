@@ -46,6 +46,11 @@ const accentTextSmall = {
   fontSize: sizes.small
 }
 
+const accentTextSmallBig = {
+  ...accentText,
+  fontSize: scale(22),
+}
+
 const title = {
   color: Colors.purple,
   marginVertical: Spacing.large
@@ -65,6 +70,10 @@ export default {
     ...accentTextBig,
     color: Colors.purple
   },
+  accentPurpleSmall: {
+      ...accentTextSmallBig,
+      color: Colors.purple
+    },
   accentPurpleGiant: {
     ...accentTextGiant,
     color: Colors.purple

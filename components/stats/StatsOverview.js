@@ -29,11 +29,22 @@ Row.propTypes = {
   rowContent: PropTypes.array.isRequired,
 }
 
+//const Cell = ({ content, isLeft, hasAsterisk }) => {
+//  const styleContainer = isLeft ? styles.cellLeft : styles.cellRight
+//  const styleText = isLeft ? styles.accentPurpleBig : styles.accentOrange
+//  const numberOfLines = isLeft ? 1 : 2
+//  const ellipsizeMode = isLeft ? 'clip' : 'tail'
+
 const Cell = ({ content, isLeft, hasAsterisk }) => {
-  const styleContainer = isLeft ? styles.cellLeft : styles.cellRight
-  const styleText = isLeft ? styles.accentPurpleBig : styles.accentOrange
-  const numberOfLines = isLeft ? 1 : 2
-  const ellipsizeMode = isLeft ? 'clip' : 'tail'
+  const styleContainer = isLeft ? styles.cellLeft : styles.cellRight;
+  const styleText = isLeft
+    ? styles.accentPurpleSmall
+    : hasAsterisk
+    ? styles.accentOrangeSmall // Apply smaller font size for standard deviation
+    : styles.accentOrange;
+
+  const numberOfLines = isLeft ? 1 : 2;
+  const ellipsizeMode = isLeft ? 'clip' : 'tail';
 
   return (
     <View style={styleContainer}>
@@ -65,6 +76,15 @@ const styles = StyleSheet.create({
     ...Typography.accentPurpleBig,
     marginRight: Spacing.tiny,
   },
+  accentPurpleSmall: {
+      ...Typography.accentPurpleSmall,
+      marginRight: Spacing.tiny,
+    },
+  accentOrangeSmall: {
+      ...Typography.accentOrange,
+      fontSize: Sizes.tiny, // Use a smaller font size for standard deviation
+      margin: Sizes.tiny,
+    },
   cellLeft: {
     alignItems: 'flex-end',
     flex: 3,
