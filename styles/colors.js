@@ -25,6 +25,7 @@ export default {
   turquoise: '#3B3E41',
   turquoiseLight: '#E9F2ED',
   darkBlue: '#00008B',
+  primary:'#C0BBBE',
   iconColors: {
     'bleeding': {
       color: redColor,
