@@ -4,5 +4,6 @@ import schema2 from './2.js'
 import schema3 from './3.js'
 import schema4 from './4.js'
 import schema5 from './5.js'
+import schema6 from './6.js'
 
-export default [schema0, schema1, schema2, schema3, schema4, schema5]
+export default [schema0, schema1, schema2, schema3, schema4, schema5, schema6]

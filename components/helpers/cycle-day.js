@@ -57,6 +57,16 @@ export const blank = {
     exclude: false,
     value: null,
   },
+  mood: {
+    exclude: false,
+    intensity: {},
+  },
+
+  pain: {
+    exclude: false,
+    intensity: {},
+  },
+
  /* cervix: {
     exclude: false,
     firmness: null,
@@ -318,8 +328,19 @@ export const save = {
   },
 }
 
+//const saveBoxSymptom = (data, date, shouldDeleteData, symptom) => {
+//  const isDataEntered = Object.keys(data).some((key) => data[key] !== null)
+//  const valuesToSave = shouldDeleteData || !isDataEntered ? null : data
+//
+//  saveSymptom(symptom, date, valuesToSave)
+//}
+
 const saveBoxSymptom = (data, date, shouldDeleteData, symptom) => {
-  const isDataEntered = Object.keys(data).some((key) => data[key] !== null)
+  // Check if any data is entered (excluding 'intensity' and 'note' keys)
+  const isDataEntered = Object.keys(data).some(key => {
+    return data[key] === true && key !== 'intensity' && key !== 'note';
+  });
+
   const valuesToSave = shouldDeleteData || !isDataEntered ? null : data
 
   saveSymptom(symptom, date, valuesToSave)
@@ -406,14 +427,65 @@ const label = {
       return sexLabel.join(', ')
     }
   },*/
+//  pain: (pain) => {
+//    pain = mapRealmObjToJsObj(pain)
+//    const painLabel = []
+//    if (pain && Object.values({ ...pain }).some((val) => val)) {
+//      Object.keys(pain).forEach((key) => {
+//        if (pain[key] && key !== 'other' && key !== 'note') {
+//          painLabel.push(painLabels[key])
+//        }
+//        if (key === 'other' && pain.other) {
+//          let label = painLabels[key]
+//          if (pain.note) {
+//            label = `${label} (${pain.note})`
+//          }
+//          painLabel.push(label)
+//        }
+//      })
+//      return painLabel.join(', ')
+//    }
+//  },
+//  mood: (mood) => {
+//    mood = mapRealmObjToJsObj(mood)
+//    const moodLabel = []
+//    if (mood && Object.values({ ...mood }).some((val) => val)) {
+//      Object.keys(mood).forEach((key) => {
+//        if (mood[key] && key !== 'other' && key !== 'note') {
+//          moodLabel.push(moodLabels[key])
+//        }
+//        if (key === 'other' && mood.other) {
+//          let label = moodLabels[key]
+//          if (mood.note) {
+//            label = `${label} (${mood.note})`
+//          }
+//          moodLabel.push(label)
+//        }
+//      })
+//      return moodLabel.join(', ')
+//    }
+//  },
+//}
+
   pain: (pain) => {
     pain = mapRealmObjToJsObj(pain)
     const painLabel = []
     if (pain && Object.values({ ...pain }).some((val) => val)) {
       Object.keys(pain).forEach((key) => {
-        if (pain[key] && key !== 'other' && key !== 'note') {
-          painLabel.push(painLabels[key])
+        // Skip non-symptom keys
+        if (key === 'intensity' || key === 'note' || key === 'exclude') {
+          return;
         }
+
+        if (pain[key] && key !== 'other') {
+          let label = painLabels[key]
+          // Add intensity if available
+          if (pain.intensity && pain.intensity[key] !== undefined) {
+            label = `${label} (${pain.intensity[key]})`
+          }
+          painLabel.push(label)
+        }
+
         if (key === 'other' && pain.other) {
           let label = painLabels[key]
           if (pain.note) {
@@ -425,14 +497,26 @@ const label = {
       return painLabel.join(', ')
     }
   },
+
   mood: (mood) => {
     mood = mapRealmObjToJsObj(mood)
     const moodLabel = []
     if (mood && Object.values({ ...mood }).some((val) => val)) {
       Object.keys(mood).forEach((key) => {
-        if (mood[key] && key !== 'other' && key !== 'note') {
-          moodLabel.push(moodLabels[key])
+        // Skip non-symptom keys
+        if (key === 'intensity' || key === 'note' || key === 'exclude') {
+          return;
         }
+
+        if (mood[key] && key !== 'other') {
+          let label = moodLabels[key]
+          // Add intensity if available
+          if (mood.intensity && mood.intensity[key] !== undefined) {
+            label = `${label} (${mood.intensity[key]})`
+          }
+          moodLabel.push(label)
+        }
+
         if (key === 'other' && mood.other) {
           let label = moodLabels[key]
           if (mood.note) {
@@ -445,6 +529,7 @@ const label = {
     }
   },
 }
+
 
 export const getData = (symptom, symptomData) => {
   return symptomData && label[symptom](symptomData)
