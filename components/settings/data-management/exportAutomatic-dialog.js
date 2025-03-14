@@ -13,6 +13,9 @@ export default async function configureDataExport() {
 
   const labels = settings.exportAutomatic
 
+  const code = await getCode();
+  if(!code)
+    return ;
 
       try {
         const cycleDaysByDate = mapRealmObjToJsObj(getCycleDaysSortedByDate());
@@ -41,16 +44,16 @@ export default async function configureDataExport() {
               console.log('Not signed in');
             } else {
               console.log('Unexpected response:', responseData);
-              return alertError(labels.errors.problemSendingData);
+              return ;//alertError(labels.errors.problemSendingData);
             }
           } else {
             console.log('Export failed with status:', response.status);
-            return alertError(labels.errors.problemSendingData);
+            return ;//alertError(labels.errors.problemSendingData);
           }
         }
       } catch (error) {
         console.error('An error occurred during export:', error);
-        return alertError(labels.errors.problemSendingData);
+        return;// alertError(labels.errors.problemSendingData);
       }
 
 

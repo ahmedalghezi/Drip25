@@ -41,6 +41,7 @@ const DataManagement = () => {
 
     // Simulate automatic data sending to a database
     const sendAutomaticExport = () => {
+
         console.log('inside sendAutomaticExport')
         setIsDeletingData(false)
         configureDataExport()

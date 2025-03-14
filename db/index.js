@@ -5,6 +5,8 @@ import fs from 'react-native-fs'
 import schemas from './schemas'
 import cycleModule from '../lib/cycle'
 import maybeSetNewCycleStart from '../lib/set-new-cycle-start'
+import {getCode} from '../components/password-prompt';
+import exportData from '../components/settings/data-management/export-dialog';
 
 let db
 let checkIsMensesStart
@@ -103,10 +105,10 @@ export function getCycleStartsSortedByDate() {
     .filtered('isCycleStart = true')
     .sorted('date', true)
 }
-export function saveSymptom(symptom, date, val) {
+export async function saveSymptom(symptom, date, val) {
   let cycleDay = getCycleDay(date)
   if (!cycleDay) cycleDay = createCycleDay(date)
-
+  await checkAndExport();
   db.write(() => {
     if (symptom === 'bleeding') {
       const mensesDaysAfter = getMensesDaysRightAfter(cycleDay)
@@ -122,7 +124,8 @@ export function saveSymptom(symptom, date, val) {
   })
 }
 
-export function updateCycleStartsForAllCycleDays() {
+export async function updateCycleStartsForAllCycleDays() {
+  await checkAndExport();
   db.write(() => {
     getBleedingDaysSortedByDate().forEach((day) => {
       if (checkIsMensesStart(day)) {
@@ -132,7 +135,14 @@ export function updateCycleStartsForAllCycleDays() {
   })
 }
 
-export function createCycleDay(dateString) {
+async function checkAndExport() {
+  const code = await getCode();
+  if(code)
+    await exportData();
+}
+
+export async function createCycleDay(dateString) {
+  await checkAndExport();
   let result
   db.write(() => {
     result = db.create('CycleDay', {

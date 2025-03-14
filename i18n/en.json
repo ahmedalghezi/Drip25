@@ -70,19 +70,19 @@
       "title": "Datenschutzerklärung",
       "intro": {
         "title": "Einleitung",
-        "text": "Wenn Sie sich mit einem in:prove-Konto in dieser App anmelden, gilt die Datenschutzrichtlinie von in:prove (https://lime.inprove-sport.info/privacy_policy_inprove.pdf).\n\nWenn Sie sich nicht anmelden, legt der Rest dieser Datenschutzerklärung fest, wie die App drip. Ihre persönlichen Daten verwendet, die Sie in der App erzeugen und speichern."
+        "text": "Dieses Dokument stellt die Richtlinie dar, die auf Ihre Daten in der ‚in:prove Drip App‘ angewendet wird. Wenn Sie sich mit einem in:prove-Konto in dieser App anmelden, gilt die Datenschutzerklärung von in:prove (https://lime.inprove-sport.info/privacy_policy_inprove.pdf).\n\nWenn Sie sich nicht anmelden, erklärt der Rest dieser Datenschutzerklärung, wie die drip. App Ihre persönlichen Daten verwendet, die Sie in der App erzeugen und speichern."
       },
       "dataUse": {
         "title": "Datenverwendung",
-        "text": "Drip. respektiert und achtet Ihre Privatsphäre. Wenn Sie sich nicht bei inprove anmelden, werden keine Nutzungsdaten oder persönlichen Informationen gesammelt. In jedem Fall gibt es keine Werbung, keine Spyware. Drip. kann Daten im Zusammenhang mit Ihrer Menstruationsgesundheit lokal auf Ihrem Gerät speichern.\n\nDies beinhaltet:\n• Einstellungen\n• Daten zur Menstruationszyklusverfolgung\n\nDie Daten werden verwendet, um Statistiken anzuzeigen und Fruchtbarkeitsregeln anzuwenden. Diese Daten können von anderen Apps nicht abgerufen werden.\n\nWenn Sie Ihre lokalen App-Daten löschen möchten, können Sie dies tun, indem Sie zu Einstellungen, Daten und App-Daten löschen navigieren. Dies kann auch durch Deinstallation der App erfolgen. Wenn Sie Ihre Daten auf dem in:prove-Server löschen möchten, können Sie dies über https://inprove-sport.info oder per E-Mail an admin@inprove.info erledigen."
+        "text": "Drip. respektiert und schätzt Ihre Privatsphäre und gibt Ihnen die volle Kontrolle über Ihre Daten. Sie können wählen, die App im Offline-Modus zu verwenden. In diesem Fall werden Ihre Daten lokal auf Ihrem Telefon gespeichert. Die gespeicherten Daten sind Statistiken über Ihre Menstruationsgesundheit.\n\nDies beinhaltet:\n• Einstellungen\n• Daten zur Menstruationszyklusverfolgung\n\nsowie allgemeine Gesundheitsinformationen. Wenn Sie uns auf der Startseite ausdrücklich autorisieren, werden wir Ihre gesammelten Daten mit dem Forschungsteam von ‚in:prove‘ teilen, vorausgesetzt, dass Sie bereits ein Konto unter https://inprove.info besitzen und dieses Konto erfolgreich zur Anmeldung verwenden. In diesem Fall müssen Sie die in:prove Geschäftsbedingungen (https://lime.inprove-sport.info/privacy_policy_inprove.pdf) zum Zeitpunkt der Erstellung Ihres in:prove-Kontos akzeptiert haben und müssen diese weiterhin akzeptieren, um das Konto in dieser App zu nutzen. Wir teilen Ihre Daten nicht mit anderen Parteien. Es gibt keine Werbung und keine Spyware in dieser App.\n\nWenn Sie Ihre lokalen App-Daten oder alle mit in:prove geteilten Daten löschen möchten, können Sie dies tun, indem Sie zu Einstellungen, Daten und App-Daten löschen navigieren. Das Deinstallieren der App löscht Ihre lokalen Daten, jedoch nicht Ihre in:prove Daten. Wenn Sie Ihre Daten explizit auf dem in:prove-Server löschen möchten, können Sie dies über https://inprove-sport.info oder per E-Mail an admin@inprove.info tun."
       },
       "permissions": {
         "title": "Berechtigungen",
-        "text": "Um Erinnerungen in drip. zu nutzen, müssen Sie Push-Benachrichtigungen erlauben. Wenn Sie diese Funktion nicht verwenden möchten, erlauben Sie einfach keine Benachrichtigungen für die App."
+        "text": "Um Erinnerungen in drip. zu verwenden, müssen Sie Push-Benachrichtigungen zulassen. Wenn Sie diese Funktion nicht nutzen möchten, erlauben Sie einfach keine Benachrichtigungen für die App."
       },
       "transparency": {
         "title": "Transparenz",
-        "text": "Sie können den Quellcode von drip. einsehen, um sicherzustellen, dass die angegebenen Informationen korrekt sind. Der Quellcode ist wie ein Rezept: Er zeigt Ihnen, wie viel und welche Art von Zutaten Sie benötigen und wie Sie diese zubereiten, um ein leckeres Essen zu kochen oder eine hochwertige App zu programmieren.\n\nBuon appetito!"
+        "text": "Sie können den Quellcode von drip. einsehen, um sicherzustellen, dass die bereitgestellten Informationen korrekt sind. Der Quellcode ist wie ein Rezept: er zeigt Ihnen, wie viel und welche Art von Zutaten Sie benötigen und wie Sie diese zubereiten, um ein köstliches Gericht zu kochen oder eine hochwertige App zu programmieren."
       }
     }
   ,

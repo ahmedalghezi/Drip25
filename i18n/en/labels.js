@@ -80,7 +80,6 @@ export const passwordPrompt = {
   areYouSure:
     'Are you absolutely sure you want to permanently delete all your data?',
   reallyDeleteData: 'Yes, I am sure',
-  reallyDeleteData: 'Yes, I am sure',
 }
 
 export const fertilityStatus = {

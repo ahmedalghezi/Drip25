@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react';
 import { StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
 
@@ -12,6 +12,9 @@ const Menu = ({ currentPage, navigate }) => {
   const menuItems = pages.filter((page) => page.isInMenu)
 
   const { t } = useTranslation(null, { keyPrefix: 'bottomMenu' })
+
+
+
 
   return (
     <View style={styles.container}>

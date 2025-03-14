@@ -1,4 +1,4 @@
-package com.drip25
+package info.inprove.drip
 
 import android.app.Application
 import com.facebook.react.PackageList

@@ -6,6 +6,8 @@ import {
   View,
   Text,
   ActivityIndicator,
+  ScrollView,
+  Image,
 } from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -18,8 +20,6 @@ import Button from './common/button';
 import Header from './header';
 import ConfirmWithPassword from './settings/common/confirm-with-password';
 import Logo from '../assets/inprove_logo_transparent.png';
-import { Image } from 'react-native';
-
 import { saveEncryptionFlag } from '../local-storage';
 import { deleteDbAndOpenNew } from '../db';
 import { passwordPrompt as labels, shared } from '../i18n/en/labels';
@@ -27,12 +27,12 @@ import { Containers, Spacing } from '../styles';
 
 const cancelButton = { text: shared.cancel, style: 'cancel' };
 
-// Simple guest token generation
 const generateGuestToken = () => {
   return `guest_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
 };
 
 const PasswordPrompt = ({ enableShowApp }) => {
+  const [showLogin, setShowLogin] = useState(false);
   const [eMail, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isAgreed, setIsAgreed] = useState(false);
@@ -43,20 +43,15 @@ const PasswordPrompt = ({ enableShowApp }) => {
   const [isCheckingStoredLogin, setIsCheckingStoredLogin] = useState(true);
 
   const validateInputs = useCallback(() => {
-    // Button is enabled only if email, password, and agreement are provided, and not loading.
     setIsButtonDisabled(!(eMail && password && isAgreed) || isLoading);
   }, [eMail, password, isAgreed, isLoading]);
 
-  // Check for stored credentials on component mount
   useEffect(() => {
     const checkForStoredLogin = async () => {
       try {
         const loginCode = await AsyncStorage.getItem('loginCode');
         const isGuest = await AsyncStorage.getItem('isGuestSession');
-
         if (loginCode && isGuest !== 'true') {
-          // If we have a login code that isn't a guest session, enable the app
-//          console.log('Found stored credentials, logging in automatically');
           enableShowApp();
         }
       } catch (error) {
@@ -65,7 +60,6 @@ const PasswordPrompt = ({ enableShowApp }) => {
         setIsCheckingStoredLogin(false);
       }
     };
-
     checkForStoredLogin();
   }, [enableShowApp]);
 
@@ -79,29 +73,18 @@ const PasswordPrompt = ({ enableShowApp }) => {
     const authorizeLogin = async () => {
       await clearGuestSessionIfNeeded();
       const loginUrl = 'https://inprove-sport.info/reg/judLo8dBjsXsy6tHsnPo/loginCycle/';
-
-      const data = {
-        email: eMail,
-        password: password,
-      };
-
+      const data = { email: eMail, password: password };
       setIsLoading(true);
 
       try {
         const response = await axios.post(loginUrl, JSON.stringify(data), {
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
         });
-
         if (isMounted) {
-//          console.log(`Response received: ${response.data.res}`);
           if (response.status === 200) {
             if (response.data.res === 'ok') {
-              // Save the login code to local storage
-              if (response.data.code){
+              if (response.data.code) {
                 await AsyncStorage.setItem('loginCode', response.data.code);
-                // Add this line to mark this as a non-guest session
                 await AsyncStorage.removeItem('isGuestSession');
               }
               enableShowApp();
@@ -155,13 +138,11 @@ const PasswordPrompt = ({ enableShowApp }) => {
   const handleGuestLogin = async () => {
     setIsGuestLoading(true);
     try {
-      // Generate and store temporary guest token
       const guestToken = generateGuestToken();
       await AsyncStorage.setItem('loginCode', guestToken);
       await AsyncStorage.setItem('isGuestSession', 'true');
       enableShowApp();
     } catch (error) {
-//      console.error('Guest login error:', error);
       Alert.alert("Error", "Failed to create offline session.", [{ text: "OK" }]);
     } finally {
       setIsGuestLoading(false);
@@ -218,13 +199,12 @@ const PasswordPrompt = ({ enableShowApp }) => {
     setEnteringEmail(false);
   };
 
-  // Show loading indicator while checking stored login
   if (isCheckingStoredLogin) {
     return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
-        <Text style={styles.loadingText}>Checking login status...</Text>
-      </View>
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#0000ff" />
+          <Text style={styles.loadingText}>Checking login status...</Text>
+        </View>
     );
   }
 
@@ -249,73 +229,90 @@ const PasswordPrompt = ({ enableShowApp }) => {
       <>
         <Header isStatic />
         <AppPage contentContainerStyle={styles.contentContainer}>
-          <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={150}>
+          <ScrollView
+              contentContainerStyle={styles.scrollContainer}
+              keyboardShouldPersistTaps="handled"
+          >
+            {/* Always visible section */}
             <Image source={Logo} style={styles.logo} />
             <Text style={styles.signInText}>
-              Zum Starten dieser App ist ein Account bei inprove-sport.info erforderlich
+              Möchtest du deine Daten mit in:prove teilen? Du brauchst ein Konto bei inprove.info
             </Text>
-            <AppTextInput
-                value={eMail}
-                onChangeText={setEmail}
-                placeholder={labels.enterEmailAddress}
-                keyboardType="email-address"
-                autoCapitalize="none"
-            />
-            <AppTextInput
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry={true}
-                placeholder={labels.enterPassword}
-            />
-            <View style={styles.checkboxContainer}>
-              <CheckBox
-                  style={styles.checkbox}
-                  onClick={() => setIsAgreed(!isAgreed)}
-                  isChecked={isAgreed}
-              />
-              <Text style={styles.checkboxLabel}>
-                Ich stimme zu, dass die in dieser App aufgezeichneten Daten an den in:prove Server gesendet und dort mit meinen Daten gespeichert werden.
-              </Text>
-            </View>
 
-            {/* Regular login button */}
-            <View style={styles.buttonContainer}>
-              <Button
-                  disabled={isButtonDisabled}
-                  isCTA={!isButtonDisabled}
-                  onPress={() => setIsLoading(true)}
-                  style={styles.loginButton}
-              >
-                {isLoading ? <ActivityIndicator size="small" color="#FFF" /> : labels.title}
-              </Button>
-            </View>
+            {showLogin ? (
+                <>
+                  <AppTextInput
+                      value={eMail}
+                      onChangeText={setEmail}
+                      placeholder={labels.enterEmailAddress}
+                      keyboardType="email-address"
+                      autoCapitalize="none"
+                  />
+                  <AppTextInput
+                      value={password}
+                      onChangeText={setPassword}
+                      secureTextEntry={true}
+                      placeholder={labels.enterPassword}
+                  />
+                  <View style={styles.checkboxContainer}>
+                    <CheckBox
+                        style={styles.checkbox}
+                        onClick={() => setIsAgreed(!isAgreed)}
+                        isChecked={isAgreed}
+                    />
+                    <Text style={styles.checkboxLabel}>
+                      Ich ermächtige diese App, meine Daten mit dem in:prove-Forschungsteam zu teilen,
+                      vorausgesetzt, ich habe ein Konto bei inprove.info. Ich habe die angegebenen
+                      Geschäftsbedingungen (https://lime.inprove-sport.info/privacy_policy_inprove.pdf)
+                      gelesen und akzeptiert, als ich mein Konto bei inprove.info erstellt habe.
+                    </Text>
+                  </View>
+                  <View style={styles.buttonContainer}>
+                    <Button
+                        disabled={isButtonDisabled}
+                        isCTA={!isButtonDisabled}
+                        onPress={() => setIsLoading(true)}
+                        style={styles.loginButton}
+                    >
+                      {isLoading ? <ActivityIndicator size="small" color="#FFF" /> : labels.title}
+                    </Button>
+                  </View>
+                </>
+            ) : (
+                <View style={styles.initialButtonContainer}>
+                  <Button
+                      onPress={() => setShowLogin(true)}
+                      style={styles.initialLoginButton}
+                  >
+                    Ich möchte mich bei in:prove anmelden
+                  </Button>
+                </View>
+            )}
 
-            {/* Divider */}
+            {/* Always shown guest login section */}
             <View style={styles.divider}>
               <View style={styles.dividerLine} />
               <Text style={styles.dividerText}>oder</Text>
               <View style={styles.dividerLine} />
             </View>
-
-            {/* Guest login button */}
             <View style={styles.buttonContainer}>
               <Button
                   disabled={isGuestLoading}
                   onPress={handleGuestLogin}
                   style={styles.loginButton}
               >
-                {isGuestLoading ?
-                  <ActivityIndicator size="small" color="#FFF" /> :
-                  "Die App offline nutzen"
-
-                }
+                {isGuestLoading ? (
+                    <ActivityIndicator size="small" color="#FFF" />
+                ) : (
+                    "Die App offline nutzen"
+                )}
               </Button>
             </View>
-
             <Text style={styles.guestInfo}>
-              Wenn die App offline genutzt wird, werden keine Daten von der App an einen Server gesendet. Alle Daten werden lokal gespeichert.
+              Wenn die App offline genutzt wird, werden keine Daten von der App an einen Server gesendet.
+              Alle Daten werden lokal gespeichert.
             </Text>
-          </KeyboardAvoidingView>
+          </ScrollView>
         </AppPage>
       </>
   );
@@ -324,8 +321,23 @@ const PasswordPrompt = ({ enableShowApp }) => {
 const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
-    justifyContent: 'center',
     marginHorizontal: Spacing.base,
+  },
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingVertical: Spacing.base,
+  },
+  initialButtonContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: Spacing.medium,
+  },
+  initialLoginButton: {
+    backgroundColor: '#fcb913',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 5,
   },
   buttonContainer: {
     width: '100%',
@@ -373,7 +385,7 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     backgroundColor: '#fcb913',
-    textAlign: 'center' ,
+    textAlign: 'center',
     alignSelf: 'center',
     marginTop: 20,
   },
@@ -397,7 +409,6 @@ const styles = StyleSheet.create({
 
 export default PasswordPrompt;
 
-// Export getCode so that other modules can retrieve the saved code.
 export const getCode = async () => {
   try {
     const code = await AsyncStorage.getItem('loginCode');
@@ -416,11 +427,6 @@ export const logout = async () => {
   }
 };
 
-
-
-
-
-// Helper function to check if current session is a guest session
 export const isGuestSession = async () => {
   try {
     return await AsyncStorage.getItem('isGuestSession') === 'true';
@@ -429,48 +435,37 @@ export const isGuestSession = async () => {
   }
 };
 
-// Add this to your App.js to clear guest sessions on app restart
 export const clearGuestSessionIfNeeded = async () => {
   try {
     const isGuest = await isGuestSession();
     if (isGuest) {
       await cleanupGuestData();
-      return true; // Session was cleared
+      return true;
     }
-    return false; // No guest session found
+    return false;
   } catch (error) {
     console.error('Error checking offline session:', error);
     return false;
   }
 };
 
-// Setup guest session monitor to handle cleanup
 export const setupGuestSessionMonitor = () => {
-  // Return function that checks and handles guest session on app startup/background
   return async () => {
     try {
       const isGuest = await isGuestSession();
       if (isGuest) {
-//        console.log('Guest session detected, monitoring for app exit');
-
-        // For app closure handling
         const handleAppStateChange = async (nextAppState) => {
           if (nextAppState === 'background' || nextAppState === 'inactive') {
-//            console.log('App going to background, clearing guest session');
             await clearGuestSessionIfNeeded();
           }
         };
-
-        // Set up app state listener
         const { AppState } = require('react-native');
         const subscription = AppState.addEventListener('change', handleAppStateChange);
-
-        // Return cleanup function (if needed elsewhere)
         return () => {
           subscription.remove();
         };
       }
-      return () => {}; // Return empty cleanup if not guest
+      return () => {};
     } catch (error) {
       console.error('Error in offline session monitor:', error);
       return () => {};
@@ -478,33 +473,20 @@ export const setupGuestSessionMonitor = () => {
   };
 };
 
-// Comprehensive guest data cleanup
 export const cleanupGuestData = async () => {
   try {
-//    console.log('Cleaning up guest session data...');
-
-    // 1. Clear guest authentication tokens
     await AsyncStorage.removeItem('loginCode');
     await AsyncStorage.removeItem('isGuestSession');
-
-    // 2. Clear all app data stored by the guest
-    // Get all keys and filter for those related to app data
     const allKeys = await AsyncStorage.getAllKeys();
     const dataKeys = allKeys.filter(key =>
-      key.startsWith('appData_') ||
-      key.startsWith('userData_') ||
-      key.startsWith('tempData_')
+        key.startsWith('appData_') ||
+        key.startsWith('userData_') ||
+        key.startsWith('tempData_')
     );
-
-    // Remove all data keys
     if (dataKeys.length > 0) {
       await AsyncStorage.multiRemove(dataKeys);
-//      console.log(`Cleared ${dataKeys.length} guest data items`);
     }
-
-    // 3. Reset local database if using one
     await deleteDbAndOpenNew();
-
     return true;
   } catch (error) {
     console.error('Error cleaning up offline mode data:', error);

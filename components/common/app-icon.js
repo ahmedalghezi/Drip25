@@ -11,6 +11,8 @@ const AppIcon = ({ color, name, style, ...props }) => {
   return <Icon name={name} style={iconStyle} {...props} />
 }
 
+
+
 AppIcon.propTypes = {
   color: PropTypes.string,
   name: PropTypes.string.isRequired,

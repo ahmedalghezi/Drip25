@@ -11,6 +11,9 @@ import { showToast } from '../../helpers/general'
 import {getCode} from '../../password-prompt';
 
 export default async function exportData() {
+  const code = await getCode();
+  if(!code)
+    return ;
   let data
   const labels = settings.export
   const cycleDaysByDate = mapRealmObjToJsObj(getCycleDaysSortedByDate())
@@ -42,16 +45,16 @@ export default async function exportData() {
             showToast(errors.notSignedIn)
           } else {
             console.log("Unexpected response:", responseData);
-            return alertError(labels.errors.problemSendingData);
+            return ;//alertError(labels.errors.problemSendingData);
           }
         } else {
           console.log('Export failed with status:', response.status);
-          return alertError(labels.errors.problemSendingData)
+          return ;//alertError(labels.errors.problemSendingData)
         }
       }
       } catch (error) {
         console.error('An error occurred during export:', error);
-        return alertError(labels.errors.problemSendingData)
+        return ;//alertError(labels.errors.problemSendingData)
 
       }
 

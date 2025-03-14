@@ -1,4 +1,4 @@
-package com.drip25
+package info.inprove.drip
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

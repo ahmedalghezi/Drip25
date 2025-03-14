@@ -11,7 +11,7 @@ const Header = ({ isStatic, navigate }) => {
   return (
     <View style={styles.header}>
       {isStatic ? (
-        <Logo/>
+          <Logo/>
       ) : (
         <>
           <TouchableOpacity onPress={() => navigate('Home')}>
