@@ -8,6 +8,8 @@ import Menu from './menu'
 import { viewsList } from './views'
 import { pages } from './pages'
 import { closeDb } from '../db'
+import setupNotifications from '../lib/notifications'
+
 const App = ({ restartApp }) => {
 const [date, setDate] = useState(LocalDate.now().toString())
 const [currentPage, setCurrentPage] = useState('Home')
@@ -64,7 +66,12 @@ clearGuestSessionIfNeeded();
 //  }
 
 
-/// useEffect(() => setupNotifications(setCurrentPage, setDate), [])
+  useEffect(() => {
+    // Initialize notifications so that they get scheduled based on local storage values.
+    setupNotifications(setCurrentPage, setDate)
+  }, [])
+
+
 const Page = viewsList[currentPage]
 const isTemperatureEditView = currentPage === 'TemperatureEditView'
 const headerProps = { navigate: setCurrentPage }

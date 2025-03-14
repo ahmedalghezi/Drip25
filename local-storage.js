@@ -26,7 +26,7 @@ export async function saveTempScale(scale) {
 
 export const tempReminderObservable = Observable()
 setObvWithInitValue('tempReminder', tempReminderObservable, {
-  enabled: false,
+  enabled: true,
 })
 
 export async function saveTempReminder(reminder) {
@@ -36,7 +36,7 @@ export async function saveTempReminder(reminder) {
 
 export const periodReminderObservable = Observable()
 setObvWithInitValue('periodReminder', periodReminderObservable, {
-  enabled: false,
+  enabled: true,
 })
 
 export async function savePeriodReminder(reminder) {

@@ -5,10 +5,12 @@ import Chart from './chart/chart'
 import SettingsMenu from './settings/settings-menu'
 import settingsViews from './settings'
 import Stats from './stats'
+import TestNotificationsScreen from './TestNotificationsScreen'
 
 export const viewsList = {
   Home,
   Calendar,
+  TestNotificationsScreen,
   CycleDay,
   TemperatureEditView: CycleDay,
   Chart,

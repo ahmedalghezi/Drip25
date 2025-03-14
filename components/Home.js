@@ -27,6 +27,11 @@ const Home = ({ navigate, setDate }) => {
     setDate(todayDateString)
     navigate('CycleDay')
   }
+  function navigateToTestNotifications() {
+      // Navigate to the TestNotificationsScreen to test the notifications functionality
+      console.log('Navigating to TestNotificationsScreen');
+      navigate('TestNotificationsScreen')
+    }
 
   const todayDateString = LocalDate.now().toString()
   const { getCycleDayNumber, getPredictedMenses } = cycleModule()
@@ -98,6 +103,11 @@ const Home = ({ navigate, setDate }) => {
       <Button isCTA isSmall={false} onPress={navigateToCycleDayView}>
         {t('labels.home.addDataForToday')}
       </Button>
+
+      {/* New Test Notifications Button */}
+       <Button isCTA isSmall={false} onPress={navigateToTestNotifications}>
+          Test Notifications
+       </Button>
 
       {/* Footnote */}
       <Footnote colorLabel="black">{statusText}</Footnote>
