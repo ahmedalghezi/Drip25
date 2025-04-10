@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { View, Button, Text, Platform } from 'react-native'
-import PushNotification from 'react-native-push-notification'
+import Notification from 'react-native-push-notification'
 import { savePeriodReminder } from '../local-storage'
 import cycleModule from '../lib/cycle'
 import Moment from 'moment'
@@ -11,7 +11,7 @@ const TestNotificationsScreen = ({ navigate }) => {
   useEffect(() => {
     // For Android, create the notification channel if not already created
     if (Platform.OS === 'android') {
-      PushNotification.createChannel(
+      Notification.createChannel(
         {
           channelId: 'health-app-reminders', // Must match the channelId used when scheduling notifications
           channelName: 'Health App Reminders',
@@ -26,44 +26,94 @@ const TestNotificationsScreen = ({ navigate }) => {
   }, [])
 
   // Test Temperature Reminder Button
-  const triggerTestNotification = () => {
-    PushNotification.localNotification({
-      channelId: 'health-app-reminders',
-      id: '1',
-      userInfo: { id: '1' },
-      title: 'Test Temperature Notification',
-      message: 'Record your temperature now!',
-      vibrate: false,
-    })
-  }
+//  const triggerTestNotification = () => {
+//    Notification.localNotification({
+//      channelId: 'health-app-reminders',
+//      id: '1',
+//      userInfo: { id: '1' },
+//      title: 'Test Temperature Notification',
+//      message: 'Record your temperature now!',
+//      vibrate: true,
+//    })
+//  }
 
   // Test Period Reminder Button (Direct Scheduling for Next 10 Minutes)
-  const testPeriodReminderNow = () => {
-    // Schedule the period reminder for 5 seconds from now
-    const testReminderDate = new Date(Date.now() + 5000); // 5000 ms = 5 seconds
-    PushNotification.localNotificationSchedule({
-      channelId: 'health-app-reminders',
-      id: '2',
-      userInfo: { id: '2' },
-      title: 'Test Period Reminder',
-      message: 'Your period is predicted to start soon!',
-      date: testReminderDate,
-      vibrate: false,
-      allowWhileIdle: true,
-    });
-    console.log(`Period reminder scheduled for: ${testReminderDate}`);
-  };
+   // Method 1: Scheduled Notification (10 seconds delay)
+   const scheduleTestPeriodNotification = () => {
+     const now = new Date();
+     // Schedule notification for 10 seconds from now
+     const scheduledTime = new Date(now.getTime() + 10000);
+     console.log(`Current time: ${now}`);
+     console.log(`Scheduled period notification for: ${scheduledTime}`);
 
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Current Date Set: {currentDate}</Text>
-      <Button
-        title="Trigger Temperature Test Notification"
-        onPress={triggerTestNotification}
-      />
-      <Button title="Test Period Reminder Now (0.10 min)" onPress={testPeriodReminderNow} />
-    </View>
-  )
-}
+     Notification.localNotificationSchedule({
+       channelId: 'health-app-reminders', // Must match channel created
+       id: 'test_period',                 // Use a unique ID for testing
+       userInfo: { id: 'test_period' },
+       title: 'Test Period Notification',
+       message: 'This is a test period reminder scheduled for 10 seconds in the future.',
+       date: scheduledTime,
+       vibrate: true,
+       allowWhileIdle: true,
+       importance: 'high',
+       priority: 'high',
+     });
+   };
+
+   // Method 2: Immediate Notification via setTimeout
+   const triggerImmediateTestPeriodNotification = () => {
+     console.log(`Trigger immediate test notification at: ${new Date()}`);
+     // Wait 5 seconds then trigger the notification immediately
+     setTimeout(() => {
+       Notification.localNotification({
+         channelId: 'health-app-reminders',
+         id: 'test_period_immediate',
+         userInfo: { id: 'test_period_immediate' },
+         title: 'Immediate Test Period Notification',
+         message: 'This is an immediate test period reminder triggered after a 5-second delay.',
+         vibrate: true,
+         allowWhileIdle: true,
+         importance: 'high',
+         priority: 'high',
+       });
+       console.log(`Immediate test period notification triggered at: ${new Date()}`);
+     });
+   };
+
+//  return (
+//    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//      <Text>Current Date Set: {currentDate}</Text>
+//      <Button
+//        title="Trigger Temperature Test Notification"
+//        onPress={triggerTestNotification}
+//      />
+//      <Button title="Schedule Test Period Notification (10s delay)"
+//               onPress={scheduleTestPeriodNotification}/>
+//    <View style={{ marginVertical: 12 }} />
+//             <Button
+//               title="Trigger Immediate Test Period Notification (after 5s)"
+//               onPress={triggerImmediateTestPeriodNotification}
+//             />
+//    </View>
+//  )
+//}
+return (
+     <View style={{ flex: 1, padding: 16, justifyContent: 'center', alignItems: 'center' }}>
+       <Text style={{ marginBottom: 16, textAlign: 'center' }}>
+         Use these buttons to test period notifications. For best results, background the app after scheduling.
+       </Text>
+       <Button
+         title="Schedule Test Period Notification (10s delay)"
+         onPress={scheduleTestPeriodNotification}
+       />
+       <View style={{ marginVertical: 12 }} />
+       <Button
+         title="Trigger Immediate Test Period Notification (after 5s)"
+         onPress={triggerImmediateTestPeriodNotification}
+       />
+     </View>
+   );
+ };
+
 
 export default TestNotificationsScreen

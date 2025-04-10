@@ -10,7 +10,6 @@ import TestNotificationsScreen from './TestNotificationsScreen'
 export const viewsList = {
   Home,
   Calendar,
-  TestNotificationsScreen,
   CycleDay,
   TemperatureEditView: CycleDay,
   Chart,

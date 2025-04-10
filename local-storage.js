@@ -30,6 +30,7 @@ setObvWithInitValue('tempReminder', tempReminderObservable, {
 })
 
 export async function saveTempReminder(reminder) {
+//  console.log("Saving temperature reminder ... :", reminder)
   await AsyncStorage.setItem('tempReminder', JSON.stringify(reminder))
   tempReminderObservable.set(reminder)
 }
@@ -40,6 +41,7 @@ setObvWithInitValue('periodReminder', periodReminderObservable, {
 })
 
 export async function savePeriodReminder(reminder) {
+//  console.log("Saving period reminder:", reminder)
   await AsyncStorage.setItem('periodReminder', JSON.stringify(reminder))
   periodReminderObservable.set(reminder)
 }

@@ -9,6 +9,9 @@ import { viewsList } from './views'
 import { pages } from './pages'
 import { closeDb } from '../db'
 import setupNotifications from '../lib/notifications'
+import {requestPostNotificationPermission} from '../lib/permissions-handler'
+import { requestUserPermission, getFCMToken, setupForegroundNotifications, setupBackgroundMessageHandler } from './firebase_messaging'
+
 
 const App = ({ restartApp }) => {
 const [date, setDate] = useState(LocalDate.now().toString())
@@ -58,6 +61,14 @@ clearGuestSessionIfNeeded();
 }
 }, []);
 
+useEffect(() => {
+    requestUserPermission();
+    getFCMToken();
+    setupForegroundNotifications();
+    setupBackgroundMessageHandler();
+}, []);
+
+
 //if (!isLoggedIn) {
 //    // Show the login screen if the user is not logged in
 //    return (
@@ -65,9 +76,20 @@ clearGuestSessionIfNeeded();
 //    );
 //  }
 
+//useEffect(() => {
+//  PushNotification.createChannel({
+//    channelId: 'health-app-reminders',
+//    channelName: 'Health App Reminders',
+//    importance: 4,
+//    vibrate: true,
+//    soundName: 'default',
+//  }, created => console.log('🔔 Channel created?', created));
+//}, []);
+
 
   useEffect(() => {
     // Initialize notifications so that they get scheduled based on local storage values.
+//    requestPostNotificationPermission()
     setupNotifications(setCurrentPage, setDate)
   }, [])
 

@@ -35,6 +35,7 @@ const TemperatureReminder = () => {
   const onPickDate = (selectedDate) => {
     // Format the selected date/time using your helper.
     const formattedTime = padWithZeros(selectedDate)
+//    console.log("User picked temperature reminder time ... :", formattedTime, "from date:", selectedDate)
     setIsEnabled(true)
     setIsTimePickerVisible(false)
     setTime(formattedTime)

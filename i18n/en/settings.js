@@ -60,15 +60,15 @@ export default {
   tempReminder: {
     title: 'Erinnerung zur Temperaturmessung',
     noTimeSet: 'Bestimme eine Zeit für eine tägliche Erinnerung zur Temperaturmessung',
-    timeSet: (time) => `Daily reminder set for ${time}`,
-    notification: 'Record your morning temperature',
+    timeSet: (time) => `Tägliche Erinnerung eingestellt für ${time}`,
+    notification: 'Erfassen Sie Ihre morgendliche Temperatur',
   },
   periodReminder: {
     title: 'Erinnerung für Deine nächste Blutung',
     reminderText:
       'Erhalte 3 Tage vor Beginn Deiner nächsten Periode eine Nachricht als Erinnerung',
     notification: (daysToEndOfPrediction) =>
-      `Your next period is likely to start in 3 to ${daysToEndOfPrediction} days.`,
+      `Ihre nächste Periode wird wahrscheinlich in 3 bis ${daysToEndOfPrediction} Tagen beginnen.`
   },
   useCervix: {
     title: 'Secondary symptom',
