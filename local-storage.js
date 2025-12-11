@@ -26,20 +26,22 @@ export async function saveTempScale(scale) {
 
 export const tempReminderObservable = Observable()
 setObvWithInitValue('tempReminder', tempReminderObservable, {
-  enabled: false,
+  enabled: true,
 })
 
 export async function saveTempReminder(reminder) {
+//  console.log("Saving temperature reminder ... :", reminder)
   await AsyncStorage.setItem('tempReminder', JSON.stringify(reminder))
   tempReminderObservable.set(reminder)
 }
 
 export const periodReminderObservable = Observable()
 setObvWithInitValue('periodReminder', periodReminderObservable, {
-  enabled: false,
+  enabled: true,
 })
 
 export async function savePeriodReminder(reminder) {
+//  console.log("Saving period reminder:", reminder)
   await AsyncStorage.setItem('periodReminder', JSON.stringify(reminder))
   periodReminderObservable.set(reminder)
 }

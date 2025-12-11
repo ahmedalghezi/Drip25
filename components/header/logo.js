@@ -7,10 +7,11 @@ import { Colors, Fonts, Sizes } from '../../styles'
 
 // insert image file as logo
 const Logo = () => {
-  return  <Text/>/* <Image
+//  return  <Text/>
+  return <Image
             source={require('../../assets/inprove_logo_transparent.png')}
             style={styles.logo}
-          />*/
+          />
 }
 
 

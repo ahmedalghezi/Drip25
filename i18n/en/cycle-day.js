@@ -144,10 +144,10 @@ export const temperature = {
   }
 }
 
-export const noteExplainer = "Hier ist ein Fenster für dich, wo du uns alles mitteilen kannst, was deine Werte beeinflusst haben könnte am heutigen Tag (z.B. Erkrankung, Verletzung, Ereignisse, Schlaf etc.)"
+export const noteExplainer = "Hier hast du die Möglichkeit Dinge zu notieren, die deine Werte beeinflusst haben könnten (z. B. Erkrankung, Verletzung, Ereignisse, Schlaf, etc.)."
 
 export const general = {
-  cycleDayNumber: "Cycle Datum ",
+  cycleDayNumber: "Tag ",
   today: "Heute"
 }
 

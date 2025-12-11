@@ -19,6 +19,7 @@ const SymptomBox = ({
   symptomDataToDisplay,
   editedSymptom,
   setEditedSymptom,
+  onSymptomSaved,
 }) => {
   const { t } = useTranslation(null, { keyPrefix: 'cycleDay.symptomBox' })
   const isSymptomEdited = editedSymptom === symptom
@@ -46,6 +47,7 @@ const SymptomBox = ({
           symptom={symptom}
           symptomData={symptomData}
           onClose={() => setEditedSymptom('')}
+          onSaved={onSymptomSaved}
         />
       )}
 

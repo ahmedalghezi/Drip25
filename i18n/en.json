@@ -46,12 +46,12 @@
         "title": "Support us",
         "text": "The drips are developing this app on a volunteer basis. We are always grateful for support. This could mean condriputing to the code, giving feedback, suggesting improvements or features, testing or donating. It helps and motivates us maintaining this app and developing new features. Thank you for your support!"
       },
-      "intro": { "text": "Bitte beachte, dass du uns deine Daten nur senden kannst, wenn du ein Konto auf der Website inprove.info hast. Andernfalls werden deine Daten lokal auf deinem Smartphone und nicht auf einem Server gespeichert. Das bedeutet, dass niemand sonst deine Daten lesen kann, solange er oder sie keinen Zugriff auf dein Smartphone hat. Wir möchten sicherstellen, dass du jederzeit die Kontrolle über deine eigenen Daten behältst.\n\nFalls du technische Probleme hast, zögere nicht, uns per E-Mail (info@inprove-sport.info) zu kontaktieren." },
+      "intro": { "text": "Bitte beachte, dass du uns deine Daten nur senden kannst, wenn du ein Konto auf der in:prove-Datenbank hast – also ein Teilnehmer der in:prove Studie bist. Andernfalls werden deine Daten lokal auf deinem Smartphone und nicht auf einem Server gespeichert. Das bedeutet, dass niemand sonst deine Daten lesen kann, solange er oder sie keinen Zugriff auf dein Smartphone hat. Wir möchten sicherstellen, dass du jederzeit die Kontrolle über deine eigenen Daten behältst.\n\nFalls du technische Probleme hast, zögere nicht, uns per E-Mail (fragen@inprove.info) zu kontaktieren." },
       "philosophy": {
-        "title": "Denke daran eigenständig zu denken",
+        "title": "Diese App kann nicht alles!",
         "text": "Die App berechnet deinen Zyklus nach einem mathematischen Algorithmus. Denke daran, dass diese App von Menschen gemacht wurde und Fehler passieren können. \n\nFalls du Probleme mit deinem Zyklus haben solltest, wende dich an deine Frauenärztin. Als Athletin hast du auch immer die Möglichkeit über das Sportgynäkologie-Netzwerk eine passende Anlaufstelle zu finden. \n"
       },
-      "title": "About",
+      "title": "Über uns",
       "version": {
         "title": "Version"
       }
@@ -69,20 +69,20 @@
     "privacyPolicy": {
       "title": "Datenschutzerklärung",
       "intro": {
-        "title": "Einleitung",
-        "text": "Dieses Dokument stellt die Richtlinie dar, die auf Ihre Daten in der ‚in:prove Drip App‘ angewendet wird. Wenn Sie sich mit einem in:prove-Konto in dieser App anmelden, gilt die Datenschutzerklärung von in:prove (https://lime.inprove-sport.info/privacy_policy_inprove.pdf).\n\nWenn Sie sich nicht anmelden, erklärt der Rest dieser Datenschutzerklärung, wie die drip. App Ihre persönlichen Daten verwendet, die Sie in der App erzeugen und speichern."
+        "title": "Nutzung bei in:prove",
+        "text": "Wenn du dich mit deinem in:prove Konto in dieser App anmeldest, gelten die von dir unterschriebenen Datenschutzerklärungen. Dies gilt nur für Teilnehmerinnen der in:prove Studie (www.inprove.info). Der Datenschutz steht für uns an oberster Stelle. Alle Mitarbeiter:innen unterliegen den Datenschutzbestimmungen von in:prove. \n\n Wenn du dich nicht mit deinen in:prove Login-Daten anmeldest oder keine hast, gelten die Datenschutzerklärungen der drip App. "
       },
       "dataUse": {
         "title": "Datenverwendung",
-        "text": "Drip. respektiert und schätzt Ihre Privatsphäre und gibt Ihnen die volle Kontrolle über Ihre Daten. Sie können wählen, die App im Offline-Modus zu verwenden. In diesem Fall werden Ihre Daten lokal auf Ihrem Telefon gespeichert. Die gespeicherten Daten sind Statistiken über Ihre Menstruationsgesundheit.\n\nDies beinhaltet:\n• Einstellungen\n• Daten zur Menstruationszyklusverfolgung\n\nsowie allgemeine Gesundheitsinformationen. Wenn Sie uns auf der Startseite ausdrücklich autorisieren, werden wir Ihre gesammelten Daten mit dem Forschungsteam von ‚in:prove‘ teilen, vorausgesetzt, dass Sie bereits ein Konto unter https://inprove.info besitzen und dieses Konto erfolgreich zur Anmeldung verwenden. In diesem Fall müssen Sie die in:prove Geschäftsbedingungen (https://lime.inprove-sport.info/privacy_policy_inprove.pdf) zum Zeitpunkt der Erstellung Ihres in:prove-Kontos akzeptiert haben und müssen diese weiterhin akzeptieren, um das Konto in dieser App zu nutzen. Wir teilen Ihre Daten nicht mit anderen Parteien. Es gibt keine Werbung und keine Spyware in dieser App.\n\nWenn Sie Ihre lokalen App-Daten oder alle mit in:prove geteilten Daten löschen möchten, können Sie dies tun, indem Sie zu Einstellungen, Daten und App-Daten löschen navigieren. Das Deinstallieren der App löscht Ihre lokalen Daten, jedoch nicht Ihre in:prove Daten. Wenn Sie Ihre Daten explizit auf dem in:prove-Server löschen möchten, können Sie dies über https://inprove-sport.info oder per E-Mail an admin@inprove.info tun."
+        "text": "Drip. Respektiert und schätzt deine Privatsphäre und gibt dir die volle Kontrolle über deine Daten. Du kannst dich dazu entscheiden, die App im Offline-Modus zu verwenden. In diesem Fall werden deine Daten lokal auf deinem Telefon gespeichert. Andere Apps können nicht auf diese Daten zugreifen.\nEs gibt keine Spyware oder Werbung in dieser App.\n\nWenn du deine lokalen App-Daten oder alle mit in:prove geteilten Daten löschen möchtest, kannst du das unter Einstellungen > Daten > App Daten löschen tun. Das Deinstallieren der App löscht nur deine lokalen Daten. Wenn du deine Daten auf dem in:prove Server löschen möchtest, kannst du das per E-Mail an fragen@inprove.info tun. "
       },
       "permissions": {
         "title": "Berechtigungen",
-        "text": "Um Erinnerungen in drip. zu verwenden, müssen Sie Push-Benachrichtigungen zulassen. Wenn Sie diese Funktion nicht nutzen möchten, erlauben Sie einfach keine Benachrichtigungen für die App."
+        "text": "Um Erinnerungen der App zu verwenden, musst du die Push-Benachrichtigungen in deinen Einstellungen zulassen. \n"
       },
       "transparency": {
         "title": "Transparenz",
-        "text": "Sie können den Quellcode von drip. einsehen, um sicherzustellen, dass die bereitgestellten Informationen korrekt sind. Der Quellcode ist wie ein Rezept: er zeigt Ihnen, wie viel und welche Art von Zutaten Sie benötigen und wie Sie diese zubereiten, um ein köstliches Gericht zu kochen oder eine hochwertige App zu programmieren."
+        "text": "Du kannst den Quellcode von drip. Einsehen, um sicherzustellen, dass die bereitgestellten Informationen korrekt sind.\n"
       }
     }
   ,
@@ -131,12 +131,12 @@
     "noData": "Mindestens ein abgeschlossener Zyklus wird benötigt, um Statistiken anzuzeigen.",
     "intro": "Grundlegende Statistiken zur Länge deiner Zyklen.",
     "overview": {
-      "average": "Durchschn. Zyklus",
+      "average": "Durchschnittliche Zykluslänge",
       "days": "Tage",
       "min": "Kürzester",
       "max": "Längster",
       "standardDeviation": "Tage",
-      "completedCycles": "Abg. Zyklen"
+      "completedCycles": "Anzahl Zyklen"
     },
     "showStats": "Zeige Details zur Periode",
     "details": {
@@ -144,7 +144,7 @@
       "cycleLength": "Zykluslänge",
       "bleedingDays": "Blutung"
     },
-    "footnote": "Die Standardabweichung zeigt dir, wie stark deine Zykluslänge schwankt, d.h. wie regelmäßig oder unregelmäßig deine Periode ist. Schwankungen in der Zykluslänge sind völlig normal. Sind die Schwankungen allerdings zu hoch oder beeinträchtigen dich im Alltag, solltest du diese mit einer medizinischen Fachperson besprechen. Solltest du Unterstützung bei der Kontaktaufnahme benötigen, melde dich gerne unter einwilligung@inprove.info"
+    "footnote": "Diese Zahl zeigt dir, wie stark deine Zykluslänge schwankt, d.h. wie regelmäßig oder unregelmäßig deine Periode ist. Schwankungen in der Zykluslänge sind völlig normal. Sind die Schwankungen allerdings zu hoch oder beeinträchtigen dich im Alltag, solltest du diese mit einer medizinischen Fachperson besprechen. Solltest du Unterstützung bei der Kontaktaufnahme benötigen, melde dich gerne unter fragen@inprove.info"
   },
   "plurals": {
     "day": "{{count}} Tag",

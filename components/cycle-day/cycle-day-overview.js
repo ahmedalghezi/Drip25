@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
 
@@ -13,11 +13,25 @@ import { Spacing } from '../../styles'
 import { SYMPTOMS } from '../../config'
 
 const CycleDayOverView = ({ date, setDate, isTemperatureEditView }) => {
-  const cycleDay = getCycleDay(date)
+
+  const [cycleDay, setCycleDay] = useState(() => getCycleDay(date))
+
+//  const cycleDay = getCycleDay(date)
+    useEffect(() => {
+      setCycleDay(getCycleDay(date))
+    }, [date])
 
   const [editedSymptom, setEditedSymptom] = useState(
     isTemperatureEditView ? 'temperature' : ''
   )
+
+    const handleSymptomSaved = (symptom, newData) => {
+        // update preview immediately
+        setCycleDay((prev) => ({
+          ...(prev || {}),
+          [symptom]: newData,
+        }))
+      }
 
   const showNextCycleDay = () => {
     setDate(nextDate(date))
@@ -48,6 +62,8 @@ const CycleDayOverView = ({ date, setDate, isTemperatureEditView }) => {
               symptomDataToDisplay={getData(symptom, symptomData)}
               editedSymptom={editedSymptom}
               setEditedSymptom={setEditedSymptom}
+              onSymptomSaved={handleSymptomSaved}
+
             />
           )
         })}

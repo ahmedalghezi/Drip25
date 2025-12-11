@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "769292898680",
+    "project_id": "drip25-ea540",
+    "storage_bucket": "drip25-ea540.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769292898680:android:3057a85f6baa6375c4788d",
+        "android_client_info": {
+          "package_name": "info.inprove.drip"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD3fqkrkDvTR2VoxBTiHsNIpomg4b-r00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

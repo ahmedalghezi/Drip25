@@ -1,6 +1,8 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply plugin: 'com.google.gms.google-services'
+
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -131,12 +133,22 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    implementation 'com.google.firebase:firebase-messaging:21.1.0'
+
+
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
         implementation jscFlavor
     }
+
+//    implementation(project(":react-native-push-notification")) {
+//        // Exclude Firebase if you only want local notifications
+//        exclude group: "com.google.firebase"
+//        exclude group: "com.google.android.gms"
+//    }
+
 }
 
 

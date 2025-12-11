@@ -40,6 +40,7 @@ const statsData = [
 //  [`±${standardDeviation}`, t('overview.standardDeviation')],
   [numberOfCycles, t('overview.completedCycles')],
 ]
+const averageLabel = t('overview.average').replace(' ', '\n')
 
 
   return (
@@ -58,8 +59,8 @@ const statsData = [
                   style={styles.imageContainter}
                 >
                   <AppText
-                    numberOfLines={1}
-                    ellipsizeMode="clip"
+//                    numberOfLines={1}
+//                    ellipsizeMode="clip"
                     style={styles.accentPurpleGiant}
                   >
                     {cycleData.mean}
@@ -68,7 +69,7 @@ const statsData = [
                     {t('overview.days')}
                   </AppText>
                      <AppText style={styles.accentOrangeSpc}>
-                          {t('overview.average')}
+                          {averageLabel}
                   </AppText>
                 </ImageBackground>
 
@@ -108,14 +109,19 @@ const styles = ScaledSheet.create({
       ...Typography.accentOrangeSpc,
       paddingHorizontal: Spacing.base,
       marginBottom: Spacing.base,
+      fontSize: 8,
+      marginLeft:Spacing.base * -2,
+      textAlign: 'center',
    },
   accentPurpleGiant: {
     ...Typography.accentPurpleGiant,
     marginTop: Spacing.base * -2,
+    marginLeft:Spacing.base * 1,
   },
   accentPurpleSmall: {
       ...Typography.accentPurpleSmall,
       marginTop: Spacing.base * -1  ,
+
     },
   accentPurpleHuge: {
     ...Typography.accentPurpleHuge,
@@ -128,19 +134,19 @@ const styles = ScaledSheet.create({
   },
   columnLeft: {
     ...column,
-    flex: 4,
+    flex: 5,
     paddingHorizontal: Spacing.large,
   },
   columnRight:{
     ...column,
-    flex: 6,
+    flex: 8,
     paddingTop: Spacing.small,
   },
   image: {
     resizeMode: 'contain',
   },
   imageContainter: {
-    paddingTop: Spacing.large * 2.5,
+    paddingTop: Spacing.large * 2.7,
     marginBottom: Spacing.large,
   },
   overviewContainer: {
