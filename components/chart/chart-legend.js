@@ -29,6 +29,9 @@ const styles = StyleSheet.create({
   },
   text: {
     ...Typography.label,
+    fontSize: 10,
+    lineHeight: 19,
+//    textAlign: 'center',
   },
   textBold: {
     ...Typography.labelBold,

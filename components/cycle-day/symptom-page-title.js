@@ -17,7 +17,7 @@ const SymptomPageTitle = ({ date, onNextCycleDay, onPrevCycleDay }) => {
 
   const { getCycleDayNumber } = cycleModule()
   const cycleDayNumber = getCycleDayNumber(date)
-  const subtitle = cycleDayNumber && `${labels.cycleDayNumber}${cycleDayNumber}`
+  const subtitle = cycleDayNumber && `${labels.cycleDayNumber}${cycleDayNumber} im Zyklus`
 
   const formattedTitle =
     title.length > 21 ? title.substring(0, 18) + '...' : title

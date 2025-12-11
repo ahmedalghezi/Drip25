@@ -1,0 +1,121 @@
+diff --git a/node_modules/react-native-push-notification/android/src/main/java/com/dieam/reactnativepushnotification/modules/RNPushNotificationHelper.java b/node_modules/react-native-push-notification/android/src/main/java/com/dieam/reactnativepushnotification/modules/RNPushNotificationHelper.java
+index 248ff08..a481d84 100644
+--- a/node_modules/react-native-push-notification/android/src/main/java/com/dieam/reactnativepushnotification/modules/RNPushNotificationHelper.java
++++ b/node_modules/react-native-push-notification/android/src/main/java/com/dieam/reactnativepushnotification/modules/RNPushNotificationHelper.java
+@@ -1,5 +1,6 @@
+ package com.dieam.reactnativepushnotification.modules;
+ 
++import android.widget.Toast;
+ import android.app.ActivityManager;
+ import android.app.ActivityManager.RunningAppProcessInfo;
+ import android.app.AlarmManager;
+@@ -159,32 +160,91 @@ public class RNPushNotificationHelper {
+         sendNotificationScheduledCore(bundle);
+     }
+ 
+-    public void sendNotificationScheduledCore(Bundle bundle) {
+-        long fireDate = (long) bundle.getDouble("fireDate");
+-        boolean allowWhileIdle = bundle.getBoolean("allowWhileIdle");
+-
+-        // If the fireDate is in past, this will fire immediately and show the
+-        // notification to the user
+-        PendingIntent pendingIntent = toScheduleNotificationIntent(bundle);
+-
+-        if (pendingIntent == null) {
++    private void safeScheduleAlarm(long fireDate, boolean allowWhileIdle, PendingIntent pendingIntent) {
++        AlarmManager alarmManager = getAlarmManager();
++        if (alarmManager == null) {
+             return;
+         }
+ 
+-        Log.d(LOG_TAG, String.format("Setting a notification with id %s at time %s",
+-                bundle.getString("id"), Long.toString(fireDate)));
+-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+-            if (allowWhileIdle && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+-                getAlarmManager().setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, fireDate, pendingIntent);
++        try {
++            // Original logic, but wrapped in try/catch
++            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
++                if (allowWhileIdle && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
++                    alarmManager.setExactAndAllowWhileIdle(
++                            AlarmManager.RTC_WAKEUP,
++                            fireDate,
++                            pendingIntent
++                    );
++                } else {
++                    alarmManager.setExact(
++                            AlarmManager.RTC_WAKEUP,
++                            fireDate,
++                            pendingIntent
++                    );
++                }
+             } else {
+-                getAlarmManager().setExact(AlarmManager.RTC_WAKEUP, fireDate, pendingIntent);
+-            }
+-        } else {
+-            getAlarmManager().set(AlarmManager.RTC_WAKEUP, fireDate, pendingIntent);
++                alarmManager.set(
++                        AlarmManager.RTC_WAKEUP,
++                        fireDate,
++                        pendingIntent
++                );
++            }
++        } catch (SecurityException e) {
++            // <--- THIS is the crash you are seeing
++            Log.w(LOG_TAG, "Cannot schedule exact alarm – permission missing", e);
++
++            // Show a user-visible message instead of crashing
++            Toast.makeText(
++                    context,
++                    "Temperatur-Erinnerung konnte nicht gesetzt werden. " +
++                            "Bitte erlaube in den Android-Einstellungen für diese App \"Alarme & Erinnerungen\" / \"Exact alarms\".",
++                    Toast.LENGTH_LONG
++            ).show();
+         }
+     }
+ 
++//    public void sendNotificationScheduledCore(Bundle bundle) {
++//        long fireDate = (long) bundle.getDouble("fireDate");
++//        boolean allowWhileIdle = bundle.getBoolean("allowWhileIdle");
++//
++//        // If the fireDate is in past, this will fire immediately and show the
++//        // notification to the user
++//        PendingIntent pendingIntent = toScheduleNotificationIntent(bundle);
++//
++//        if (pendingIntent == null) {
++//            return;
++//        }
++//
++//        Log.d(LOG_TAG, String.format("Setting a notification with id %s at time %s",
++//                bundle.getString("id"), Long.toString(fireDate)));
++//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
++//            if (allowWhileIdle && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
++//                getAlarmManager().setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, fireDate, pendingIntent);
++//            } else {
++//                getAlarmManager().setExact(AlarmManager.RTC_WAKEUP, fireDate, pendingIntent);
++//            }
++//        } else {
++//            getAlarmManager().set(AlarmManager.RTC_WAKEUP, fireDate, pendingIntent);
++//        }
++//    }
++public void sendNotificationScheduledCore(Bundle bundle) {
++    long fireDate = (long) bundle.getDouble("fireDate");
++    boolean allowWhileIdle = bundle.getBoolean("allowWhileIdle");
++
++    // If the fireDate is in past, this will fire immediately and show the
++    // notification to the user
++    PendingIntent pendingIntent = toScheduleNotificationIntent(bundle);
++
++    if (pendingIntent == null) {
++        return;
++    }
+ 
++    Log.d(LOG_TAG, String.format("Setting a notification with id %s at time %s",
++            bundle.getString("id"), Long.toString(fireDate)));
++
++    // Use the safe wrapper instead of calling AlarmManager directly
++    safeScheduleAlarm(fireDate, allowWhileIdle, pendingIntent);
++}
+     public void sendToNotificationCentre(final Bundle bundle) {
+       RNPushNotificationPicturesAggregator aggregator = new RNPushNotificationPicturesAggregator(new RNPushNotificationPicturesAggregator.Callback() {
+         public void call(Bitmap largeIconImage, Bitmap bigPictureImage, Bitmap bigLargeIconImage) {

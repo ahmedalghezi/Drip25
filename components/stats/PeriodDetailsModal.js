@@ -72,7 +72,7 @@ const FlatListHeader = () => (
       <AppText style={styles.header}>{'Zyklusstart'}</AppText>
     </View>
     <View style={styles.cell}>
-      <AppText style={styles.header}>{'Zykllänge'}</AppText>
+      <AppText style={styles.header}>{'Zykluslänge'}</AppText>
     </View>
     <View style={styles.cell}>
       <AppText style={styles.header}>{'Blutung'}</AppText>

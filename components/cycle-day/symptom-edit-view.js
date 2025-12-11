@@ -18,7 +18,7 @@ import { shared as sharedLabels } from '../../i18n/en/labels'
 import info from '../../i18n/en/symptom-info'
 import { Colors, Containers, Sizes, Spacing } from '../../styles'
 
-const SymptomEditView = ({ date, onClose, symptom, symptomData }) => {
+const SymptomEditView = ({ date, onClose, symptom, symptomData, onSaved  }) => {
   const symptomConfig = symtomPage[symptom]
   const [data, setData] = useState(symptomData ? symptomData : { ...blank[symptom], intensity: {} })
   const [shouldShowInfo, setShouldShowInfo] = useState(false)
@@ -52,6 +52,9 @@ const SymptomEditView = ({ date, onClose, symptom, symptomData }) => {
 
     if (hasDataChanged()) {
       save[symptom](data, date, false)
+      if (onSaved) {
+              onSaved(symptom, data)
+            }
       showToast(sharedLabels.dataSaved)
     }
 
@@ -344,6 +347,7 @@ SymptomEditView.propTypes = {
   onClose: PropTypes.func.isRequired,
   symptom: PropTypes.string.isRequired,
   symptomData: PropTypes.object,
+  onSaved: PropTypes.func,
 }
 
 const styles = StyleSheet.create({

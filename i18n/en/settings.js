@@ -64,9 +64,9 @@ export default {
     notification: 'Erfassen Sie Ihre morgendliche Temperatur',
   },
   periodReminder: {
-    title: 'Erinnerung für Deine nächste Blutung',
+    title: 'Erinnerung für deine nächste Blutung',
     reminderText:
-      'Erhalte 3 Tage vor Beginn Deiner nächsten Periode eine Nachricht als Erinnerung',
+      'Erhalte 3 Tage vor Beginn deiner nächsten Periode eine Nachricht als Erinnerung',
     notification: (daysToEndOfPrediction) =>
       `Ihre nächste Periode wird wahrscheinlich in 3 bis ${daysToEndOfPrediction} Tagen beginnen.`
   },
